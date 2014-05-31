@@ -1,3 +1,5 @@
+baseurl: '/thesongsays'
+exclude: ['README.md']
 artists: 
   - 
     name: Bruno Pronsato

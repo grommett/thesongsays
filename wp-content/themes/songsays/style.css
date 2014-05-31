@@ -1,3 +1,5 @@
+---
+---
 /*
 Theme Name: The Song Says
 Theme URI: http://wordpress.org/
@@ -162,7 +164,7 @@ a {color:#000;}
 	float:left;
 	width:209px;
 	height:50px;
-	background:url('/wp-content/themes/songsays/images/logo.gif');
+	background:url('{{ site.baseurl }}/wp-content/themes/songsays/images/logo.gif');
 }
 /*
 navigation
@@ -172,7 +174,7 @@ navigation
 	margin-top:54px;
 	margin-bottom:54px;
 	height:68px;
-	background:url('/wp-content/themes/songsays/images/nav_bkg.gif') repeat-x;
+	background:url('{{ site.baseurl }}/wp-content/themes/songsays/images/nav_bkg.gif') repeat-x;
 }
 
 #nav ul
@@ -199,7 +201,7 @@ navigation
 	height:68px;
 	display:inline-block;
 	text-indent:-9999px;
-	background-image:url('/wp-content/themes/songsays/images/sprites.png');
+	background-image:url('{{ site.baseurl }}/wp-content/themes/songsays/images/sprites.png');
 }
 
 #home { width:97px;}
@@ -275,7 +277,7 @@ EMAIL FORM
 {
 	width:40px;
 	height:30px;
-	background-image:url('/wp-content/themes/songsays/images/sprites.png');
+	background-image:url('{{ site.baseurl }}/wp-content/themes/songsays/images/sprites.png');
 	background-position:-54px -1px;
 	border:none;
 	margin:17px 0px 0px 0px;
@@ -367,7 +369,7 @@ EMAIL FORM
 }
 .releases_cta
 {
-	background-image:url('/wp-content/themes/songsays/images/sprites.png');
+	background-image:url('{{ site.baseurl }}/wp-content/themes/songsays/images/sprites.png');
 	display:inline-block;
 	width:21px;
 	height:15px;
@@ -497,7 +499,7 @@ EMAIL FORM
 
 #booking_submit_button
 {
-	background-image:url('/wp-content/themes/songsays/images/sprites.png');
+	background-image:url('{{ site.baseurl }}/wp-content/themes/songsays/images/sprites.png');
 	background-position:-156px -1px;
 	border:none;	
 	width:95px;
@@ -640,7 +642,7 @@ EMAIL FORM
 
 .release_purchase_button
 {
-	background-image:url('/wp-content/themes/songsays/images/sprites.png');
+	background-image:url('{{ site.baseurl }}/wp-content/themes/songsays/images/sprites.png');
 	clear:both;
 	float:left;
 	width:40px;
@@ -820,7 +822,7 @@ margin:0px;
 	text-align:center;
 	text-indent:-9999px;
 	margin:0px 10px 0px 0px;
-	background-image:url('/wp-content/themes/songsays/images/sprites.png');
+	background-image:url('{{ site.baseurl }}/wp-content/themes/songsays/images/sprites.png');
 }
 
 #carousel_list li:hover
