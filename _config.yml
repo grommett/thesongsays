@@ -1,5 +1,5 @@
 baseurl: '/thesongsays'
-exclude: ['README.md']
+exclude: ['README.md', 'node_modules', 'package.json', 'gulp.json']
 artists: 
   - 
     name: Bruno Pronsato
