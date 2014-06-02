@@ -1,0 +1,12 @@
+{
+  artists:
+  
+      'Bruno Pronsato': {
+        small: '/wp-content/uploads/2010/08/artist-small-bruno.jpg'
+      },
+  
+      'Half Hawaii': {
+        small: '/wp-content/uploads/2010/09/hh_small.jpg'
+      }
+  
+}
