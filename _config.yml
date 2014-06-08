@@ -1,9 +1,10 @@
-baseurl: '/thesongsays'
-exclude: ['README.md', 'node_modules', 'package.json', 'gulp.json']
+source: src
+baseurl: ''
+exclude: ['README.md', 'node_modules', 'package.json', 'gulp.json', 'gulpfile.js', 'dist', 'build']
 artists: 
   - 
     name: Bruno Pronsato
-    small: /wp-content/uploads/2010/08/artist-small-bruno.jpg
+    small: /imgs/artist-small-bruno.jpg
   - 
     name: Half Hawaii
-    small: /wp-content/uploads/2010/09/hh_small.jpg
+    small: /imgs/hh_small.jpg

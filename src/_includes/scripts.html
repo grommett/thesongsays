@@ -1,0 +1,5 @@
+<script type="text/javascript" src="{{ site.baseurl }}/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/site.js"></script>
+{% for script in page.scripts %}
+<script type="text/javascript" src="{{ site.baseurl }}{{ script }}"></script>
+{% endfor %}
