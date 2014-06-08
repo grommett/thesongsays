@@ -1,5 +1,5 @@
 source: src
-baseurl: ''
+baseurl: '/thesongsays'
 exclude: ['README.md', 'node_modules', 'package.json', 'gulp.json', 'gulpfile.js', 'dist', 'build']
 artists: 
   - 

@@ -10,7 +10,9 @@ var gulp = require('gulp'),
     express = require('express'),
     livereload = require('gulp-livereload'),
     lr = require('tiny-lr'),
-    express = require('express');
+    express = require('express')
+    dir = './dist',
+    baseUrl = '/thesongsays';
 
 var paths = {
     css: './_site/css/*.css',
@@ -29,51 +31,43 @@ gulp.task('default', ['html', 'css', 'js', 'imgs'],function () {
 
 gulp.task('html', function() {
     gulp.src(paths.html)
-        .pipe(replace('/js/jquery-1.4.2.min.js', '//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'))
-        .pipe(replace('/js/moment.min.js', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js'))
-        .pipe(replace(/<script.*?src="\/js\/.*?<\/script>/g,''))
-        .pipe(replace(/<\/body>/, '<script type="text/javascript" src="/js/production.min.js"></body>'))
-        .pipe(htmlMin())
-        .pipe(gulp.dest('./dist'))
+        .pipe(replace('/thesongsays/js/jquery-1.4.2.min.js', '//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'))
+        .pipe(replace('/thesongsays/js/moment.min.js', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js'))
+        .pipe(replace(/<script.*?src="\/thesongsays\/js\/.*?<\/script>/g,''))
+        .pipe(replace(/<\/body>/, '<script type="text/javascript" src="'+baseUrl+'/js/production.min.js"></body>'))
+        //.pipe(replace(/<\/body\>/, "<script src='http://localhost:35729/livereload.js'></script></body>"))
+        //.pipe(htmlMin())
+        .pipe(gulp.dest(dir))
 })
 
 gulp.task('css', function() {
     gulp.src(paths.css)
         .pipe(minCSS())
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest(dir+'/css'))
 })
 
 gulp.task('js', function() {
-    return gulp.src('./_site/js/site.js')
-      .pipe(uglify())
-      .pipe(gulp.dest('./dist/js'))
-      .pipe(gulp.src('./_site/js/slideshow.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest('./dist/js'))
-      .pipe(gulp.src('./_site/js/shows.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest('./dist/js'))
-      .pipe(gulp.src(['./_site/js/site.js',
+    return gulp.src(['./_site/js/site.js',
                      './_site/js/shows.js',
-                     './_site/js/slideshow.js']))
+                     './_site/js/slideshow.js'])
       .pipe(uglify())
       .pipe(concat('production.min.js'))
-      .pipe(gulp.dest('./dist/js'))
+      .pipe(gulp.dest(dir+'/js'))
 })
 
 gulp.task('imgs', function() {
     return gulp.src(paths.imgs)
-               .pipe(gulp.dest('./dist/imgs'))
+               .pipe(gulp.dest(dir+'/imgs'))
 })
 
-gulp.task('watch', function() {
+gulp.task('watch', ['default'], function() {
     gulp.watch([paths.css, paths.imgs, paths.js], function() {
-       // gulp.start('html');
+       gulp.start('default');
     });
 });
 
 gulp.task('server', function() {
-    server.use(express.static('./dist'));
+    server.use(express.static(dir));
     server.listen(8000);
     reload.listen(35729);
 
@@ -84,3 +78,7 @@ gulp.task('clean', function() {
     return gulp.src('dist/*', { read: false })
         .pipe(clean());
 });
+
+gulp.task('preview', [], function() {
+    dir = 'preview'
+})
