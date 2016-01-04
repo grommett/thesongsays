@@ -1,5 +1,6 @@
 <script type="text/javascript" src="{{ site.baseurl }}/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/js/site.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/handlebars.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/moment.min.js"></script>
 {% for script in page.scripts %}
-<script type="text/javascript" src="{{ site.baseurl }}{{ script }}"></script>
+  <script type="text/javascript" src="{{ site.baseurl }}{{ script }}"></script>
 {% endfor %}

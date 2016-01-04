@@ -5,9 +5,6 @@ title: Insideout
 meta:
   description: Grant Aaron, aka Insideout, has been with Clink since it’s inception in 2005. Grant began DJing in 1997, mainly influenced by the striped down minimal sounds of Daniel Bell, Plastikman and Mike Ink. It didn't take long for those influences to move him from behind the decks to the studio. His exploration into production initially focused on ambient and experimental, then evolving into 4/4 based electronic music. In 2000, Grant co-created the multimedia net label, Lifeform Project, which involved several producers from his hometown of Atlanta, but that was just the beginning.
   img: http://thesongsays.com/imgs/artist-large-iso.jpg
-scripts:
-  - /wp-content/themes/songsays/js/moment.min.js
-  - /wp-content/themes/songsays/js/shows.js
 ---
 <!-- Container -->
 
@@ -58,6 +55,17 @@ scripts:
 			<img src="{{site.baseurl}}/imgs/ajax-loader.gif">
 		</div>
 		<script type="text/javascript" charset="utf-8">
-			getCalendar('artist', 'Insideout');
+			window.site = window.site || {};
+			site.calendar = site.calendar || {};
+			site.calendar.type = 'artist';
+			site.calendar.artist = 'Insideout';
+			site.artists= 
+			{
+				{% for artist in site.artists %}
+			  '{{artist.name}}': {
+			    small: '{{artist.small}}'
+			  }{% if forloop.last %}{% else %},{% endif %}
+				{% endfor %}
+			}
 		</script>
 	</div>

@@ -1,36 +1,38 @@
 $(document).ready(function()  {
-    Handlebars.registerHelper('lt', function(value, test, options) {
-        if(value < test) {
-            return options.fn(this);
-        }
-    });
+    if(window.hasOwnProperty('Handlebars')) {
+        Handlebars.registerHelper('lt', function(value, test, options) {
+            if(value < test) {
+                return options.fn(this);
+            }
+        });
+    }
 
     try {
+        if(!window.hasOwnProperty('site')) return;
+        if(!site.hasOwnProperty('calendar')) return;
 
+        switch(site.calendar.type) {
+            case 'shows':
+                getCalendarData(renderShowsCalendar);
+                break;
+            case 'artist':
+                getCalendarData(renderArtistCalendar);
+                break;
+
+        }
     }catch(e) {
         console.log('error', e)
         // calendar vars are not set
     }
-
-        var calendarType = calendarType || '';
-        var calendarValue = (calendarValue) ? calendarValue : false;
-        getCalendar(calendarType, calendarValue);
-
-    function shows() {
-
-    }
 });
 
-function getCalendar(type, artist) {
+function getCalendarData(callback) {
+    console.log('getting cal data')
     var endpoint = 'http://www.google.com/calendar/feeds/iic5ug7r1r1gnncqsi46bh0pe8%40group.calendar.google.com/public/full?alt=json-in-script&sortorder=ascending&orderby=starttime&futureevents=true&max-results=10'
-    if(!type) type = 'booking';
-    if(!artist) artist = 'Bruno Pronsato';
-    var successFunc = (type == 'booking') ? renderBookingCalendar : renderArtistCalendar;
-    if(type == 'all') successFunc = renderShowsPage;
     $.ajax({
         url: endpoint,
         type: "GET",
-        success: cleanedData,
+        success: callback,
         dataType: 'jsonp'
     });
 }
@@ -69,9 +71,49 @@ function cleanedData(data) {
         obj.description = show.content.$t || '';
         cleaned.artists[name].shows.push(obj);
     })
-    var template = Handlebars.compile(getShowsTemplate());
-    $(calendar).html(template(cleaned));
     return cleaned;
+}
+
+function renderShowsCalendar(data) {
+    var cleaned = cleanedData(data);
+    var template = Handlebars.compile(getShowsTemplate());
+    $('#calendar').html(template(cleaned));
+}
+
+function renderArtistCalendar(data) {
+    var cleaned = cleanedData(data);
+    var artistData = null;
+    var template = Handlebars.compile(getArtistTemplate());
+    var total = 0;
+    var delay = 300;
+
+    $.each(cleaned.artists, function(key, value) {
+        if(key !== site.calendar.artist) {
+            delete cleaned.artists[key];
+        }
+    })
+    
+    if(cleaned.artists.hasOwnProperty(site.calendar.artist)) {
+        total = cleaned.artists[site.calendar.artist].shows.length-1;
+    }
+    
+    if(total <= 0) {
+        var el = $('#show_heading').fadeOut('fast');
+        $('#calendar').fadeOut('fast');
+        return;
+    }
+
+    $('#calendar').html(template(cleaned));
+
+    for(i=0; i<= total; i++) {
+        var element = $("#cal"+String(i));
+        var hr = $("#hr"+String(i));
+        element.hide();
+        hr.hide();
+        d = delay*i;
+        element.delay(d).fadeIn('fast');
+        hr.delay(d).fadeIn('fast');
+    }
 }
 
 // Get the shows page template
@@ -104,6 +146,22 @@ function getShowsTemplate() {
            '{{/each}}';
 }
 
+function getArtistTemplate() {
+    return '{{#each artists}}'+
+           '  {{#each shows}}'+
+           '    <div class="row release" id="cal{{@index}}" style="display: inline-block;">'+
+           '      <div class="column grid_3" style="overflow:visible;">'+
+           '        <div>'+
+           '          <p class="font_small gray">{{time.long}}</p>'+
+           '          <p>{{where}}<br><span class="event_description font_tiny"></span>'+
+           '          </p>'+
+           '        </div>'+
+           '      </div>'+
+           '    </div>'+
+           '    <hr class="dotted_hr grid_3" id="hr{{@index}}" style="display: block;">'+
+           '  {{/each}}'+
+           '{{/each}}';
+}
 // Booking Calendar
 function renderBookingCalendar(calData)
 {
@@ -173,7 +231,7 @@ function renderBookingCalendar(calData)
 /*
 Artist Only Calendar
 */
-function renderArtistCalendar(data) {
+function _renderArtistCalendar(data) {
     var total = data.feed.entry.length-1;
     var i = 0;
     var html = '';

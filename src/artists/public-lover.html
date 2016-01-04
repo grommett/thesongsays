@@ -6,8 +6,6 @@ meta:
   img: http://thesongsays.com/wp-content/uploads/2010/09/artist-large-public-lover.jpg
   description: Public Lover is a deeper version of Ninca Leece and Bruno Pronsato. It's the inevitable result of two people making music for years. People who grew up on My Bloody Valentine, Roxy Music, and good-ol' techno and house. It's the sort of baby they have always wanted. It might be their golden child, or perhaps their golden squirrel?
 scripts:
-  - /wp-content/themes/songsays/js/moment.min.js
-  - /wp-content/themes/songsays/js/shows.js
 ---
 <!-- Container -->
 <div class="row" >
@@ -81,6 +79,17 @@ scripts:
 			<img src="{{site.baseurl}}/imgs/ajax-loader.gif">
 		</div>
 		<script type="text/javascript" charset="utf-8">
-			getCalendar('artist', 'Public Lover');
+			window.site = window.site || {};
+			site.calendar = site.calendar || {};
+			site.calendar.type = 'artist';
+			site.calendar.artist = 'Public Lover';
+			site.artists= 
+			{
+				{% for artist in site.artists %}
+			  '{{artist.name}}': {
+			    small: '{{artist.small}}'
+			  }{% if forloop.last %}{% else %},{% endif %}
+				{% endfor %}
+			}
 		</script>
 	</div>

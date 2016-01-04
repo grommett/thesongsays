@@ -5,9 +5,6 @@ title: Ninca Leece
 meta:
   description: Welcome to pop électronique, courtesy of Ninca Leece. Having, in recent years, played clubs and festivals all over the world, writing soundtracks or collaborating with fellow musicians, the French vocalist, who now lives in Berlin, has finally got around to completing her debut solo album, which she has been working on whenever she found a free moment.
   img: http://thesongsays.com/imgs/artist-large-nince-leece.jpg
-scripts:
-  - /wp-content/themes/songsays/js/moment.min.js
-  - /wp-content/themes/songsays/js/shows.js
 ---
 <!-- Container -->
 
@@ -65,6 +62,17 @@ scripts:
 			<img src="{{site.baseurl}}/imgs/ajax-loader.gif">
 		</div>
 		<script type="text/javascript" charset="utf-8">
-			getCalendar('artist', 'Ninca Leece');
+			window.site = window.site || {};
+			site.calendar = site.calendar || {};
+			site.calendar.type = 'artist';
+			site.calendar.artist = 'Ninca Leece';
+			site.artists= 
+			{
+				{% for artist in site.artists %}
+			  '{{artist.name}}': {
+			    small: '{{artist.small}}'
+			  }{% if forloop.last %}{% else %},{% endif %}
+				{% endfor %}
+			}
 		</script>
 	</div>
