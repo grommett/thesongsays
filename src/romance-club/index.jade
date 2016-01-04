@@ -1,0 +1,11 @@
+extends ../layouts/layout
+prepend page
+  - artistName= 'Romance Club | thesongsays'
+block contents
+  -
+    var meta = {
+      title: 'Romance Club Details'
+    }
+  h1 Romance Club
+  p.
+    This is in a p tag #{meta.title}

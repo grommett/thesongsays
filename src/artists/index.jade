@@ -1,0 +1,12 @@
+extends ../layouts/artists
+prepend page
+  - artistName= 'Artists | thesongsays'
+block contents
+  -
+    var meta = {
+      title: 'Artists Page'
+    }
+  h1 Artists Page
+  a(href="/index.html")
+  p.
+    This is in a p tag #{meta.title}

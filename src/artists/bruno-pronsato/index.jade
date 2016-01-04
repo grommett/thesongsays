@@ -1,0 +1,10 @@
+extends ../../layouts/artists
+
+prepend page
+  - artistName= 'Bruno Pronsato | thesongsays'
+
+block contents
+  h1 Bruno Pronsato Page Check it
+  img(src="/imgs/logo.png", alt="")
+  p.
+    This is in a p tag for artist: #{artistName}

@@ -1,0 +1,10 @@
+extends ../layouts/artists
+prepend page
+  - artistName= 'Artistszzz | thesongsays'
+block contents
+  h1 Blog Index
+  ul
+    each post in posts
+      li
+        a(href="/blog/#{post.slug}") #{post.getText('post.title')}
+    

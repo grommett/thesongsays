@@ -1,0 +1,16 @@
+gutter=10px
+percent=0
+.grid
+  //margin: 0 -(gutter/2)px
+  margin: s('0 -%s', (gutter/2)px)
+  overflow: hidden
+
+[class*="grid-cell-"]
+  float: left;
+  margin: 0 (gutter/2)px
+
+for i in (1...13)
+  .grid-cell-{i}
+    percent=(i/12) * 100%
+    width: s('calc(%s - %s)', percent, gutter)
+    position: relative

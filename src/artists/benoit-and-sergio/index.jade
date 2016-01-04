@@ -1,0 +1,10 @@
+extends ../../layouts/artists
+
+prepend page
+  - artistName= 'Benoit &amp; Sergio'
+
+block contents
+  h1 Bruno Pronsato Page Check it
+  img(src="/imgs/logo.png", alt="")
+  p.
+    This is in a p tag for artist: #{artistName}
