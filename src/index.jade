@@ -1,19 +1,15 @@
 extends layouts/layout
 prepend page
-  - artistName= 'thesongsays'
+  - title= 'thesongsays'
 block contents
   -
     var meta = {
       title: 'Meta Title'
     }
   section
-    div(class="grid")
-      div(class="grid-cell-8")
-        div
-          img(src="http://fpoimg.com/1272x702", class="full-width")
-          div(class="overlay main")
-            h2 Bruno Pronsato
-            p Lovers Do
-            button(class="button") Buy Now
-      div(class="grid-cell-4")
-        img(src="http://fpoimg.com/612x340", alt="", class="full-width")
+    div(class="news-item")
+      img(src="http://fpoimg.com/1272x702", class="full-width")
+      div(class="overlay main")
+        h2 Bruno Pronsato
+        p Lovers Do
+        button(class="button") Buy Now

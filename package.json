@@ -1,19 +1,23 @@
 {
-  "name": "test-build",
-  "version": "2.0.0",
+  "name": "thesongsays",
+  "version": "3.0.0",
   "description": "thesongsays website",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grommett/thesongsays.git"
+  },
   "scripts": {
     "test": "mocha ./src/js/**/*.spec.js",
     "build:prod": "gulp && rm -rf ./tmp/includes && rm -rf ./tmp/layouts && gulp rev",
     "clean": "rm -rf ./build && rm -rf ./tmp",
     "serve": "http-server ./tmp -p 3030",
-    "serve:prod": "http-server ./build -p 3030",
-    "deploy": "find ./src -regex '.*/[^/]*.jade' && mkdir -p ./gh-pages && cp -pr ./tmp/* ./gh-pages/"
+    "serve:prod": "http-server ./build -p 3030"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browserify": "^12.0.1",
     "cheerio": "^0.19.0",
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",
@@ -27,6 +31,7 @@
     "q": "^1.4.1",
     "tabletop": "^1.4.2",
     "through2": "^2.0.0",
-    "vinyl": "^1.1.0"
+    "vinyl": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

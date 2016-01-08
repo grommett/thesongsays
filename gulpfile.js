@@ -6,6 +6,8 @@ var stylus = require('gulp-stylus');
 var timestampFile = require('./plugins/gulp-timestamp');
 var livereload = require('gulp-livereload');
 var blog = require('./plugins/blog');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 var revAll = new RevAll({
   dontRenameFile: [/\.html$/g],
@@ -45,18 +47,28 @@ gulp.task('css', function() {
       .pipe(livereload());
 });
 
+gulp.task('js', function() {
+  return browserify({
+          entries: ['./src/js/test.js']
+      })
+      .bundle()
+      .pipe(source('app.js'))
+      .pipe(gulp.dest('./tmp/js'))
+      .pipe(livereload());
+});
+
 gulp.task('blog', function() {
   return gulp.src(['./src/blog/**/*.jade'])
         .pipe(blog({pretty: true}))
         .pipe(gulp.dest('tmp/blog'))
-
 });
 
 
-gulp.task('default', ['jade', 'img', 'css', 'watch'])
+gulp.task('default', ['jade', 'img', 'css', 'js', 'watch'])
 
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('./src/stylus/*.styl', ['css']);
   gulp.watch('./src/**/*.jade', ['jade']);
+  gulp.watch('./src/js/*.js', ['js']);
 });
