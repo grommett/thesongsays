@@ -1,2 +1,12 @@
 .news-item
   position: relative
+  margin-bottom: 20px
+  overflow: hidden
+  .overlay {
+    top: calc(100% - 77px);
+    transition: top .25s ease-in-out
+    opacity: .85
+  }
+  &:hover .overlay {
+    top: calc(100% - 196px)
+  }

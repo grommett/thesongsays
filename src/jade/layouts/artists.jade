@@ -6,8 +6,8 @@ block page
       title= title
     body
       include ../includes/menu
-      p using artist layout page
       block contents
-      p More artists stuff
-      p Addition
+      - artistReleases= helpers.getReleasesByArtist(artist, releases)
+      each release in artistReleases
+        li #{release.title} <br/>#{release.date}<br />#{release.id}
       include ../includes/footer

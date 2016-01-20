@@ -33,6 +33,7 @@ function getPostAuthor(id, authors) {
   return author[0];
 }
 
+// Vinly File Factory
 function getVfile(file, post, content) {
   var fileName = file.path.split('/').pop();
   console.log(fileName);

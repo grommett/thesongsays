@@ -1,18 +1,10 @@
-extends ../layouts/layout
+extends ../jade/layouts/layout
 prepend page
-  - artistName= 'thesongsays | Release'
+  - title= 'thesongsays | Releases'
 block contents
-  -
-    var meta = {
-      title: 'Meta Title'
-    }
+  h1 Releases
   section
-    div(class="grid")
-      div(class="grid-cell-8")
-        img(src="http://fpoimg.com/1272x702", class="full-width")
-        div(class="overlay main")
-          h2 Bruno Pronsato
-          p Lovers Do
-          button(class="button") Buy Now
-      div(class="grid-cell-4")
-        img(src="http://fpoimg.com/612x340", alt="", class="full-width")
+    ul
+      each release in helpers.sortByProp(releases, 'id')
+        li 
+          a(href='/releases/#{release.slug}') #{release.artist} - #{release.title} (#{release.date}) #{release.id}

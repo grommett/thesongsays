@@ -1,10 +1,19 @@
-extends ../../layouts/artists
+extends ../../jade/layouts/artists
 
 prepend page
-  - artistName= 'Benoit &amp; Sergio'
+  - title= 'thesongsays | Benoit & Sergio'
+  - artist= "Benoit & Sergio"
+releases
+  - artistReleases= helpers.getReleasesByArtist(artist, releases)
 
 block contents
-  h1 Bruno Pronsato Page Check it
-  img(src="/imgs/logo.png", alt="")
+
+  h1 Benoit &amp; Sergio
   p.
-    This is in a p tag for artist: #{artistName}
+    With their playfully flamboyant lyrics and incredibly lush production style, Benoit & Sergio bring a much-needed dose of pop swagger to the world of electronic music. Not content to make DJ fodder, the duo set out to create beautifully glistening pop songs that draw from influences mostly uncommon to the house and techno zeitgeist; bands like Talking Heads, Pavement and Roxy Music are their primary sources of inspiration, along with contemporary electronic acts like Isolee, Thomas Melchior and Ricardo Villalobos. All these influences resonate clearly in their music, joined by a kind of sexualized melodrama that makes Benoit & Sergio one of the weirdest and most charismatic groups currently making dance records.
+  p.
+    The duo debuted in 2009 with What I’ve Lost, a trippy and colorful EP released on thesongsays, Bruno Pronsato’s boutique label. With lyrics about loneliness, French girls, wine and cocaine, the EP is touched with a sleazy pop sensibility that makes other house or techno records feel dry by comparison. What I’ve Lost received a deluge of praise upon its release, including a 4.5/5 from Resident Advisor and support from DJs like Seth Troxler, Ryan Crosson and Shaun Reeves. On upcoming songs like “Principles” and “Let Me Count The Ways,” Benoit & Sergio maintain their special sense of irony while flexing their club muscles a bit more, crafting lurid atmospheres for gritty techno parties. They are also currently devising their live performance, an ordeal that will reportedly involve knee-pads, saxophone and a microphone headset.
+  p.
+    Benoit & Sergio grew up thousands of miles apart, in Paris and Chicago respectively, both going to raves but digging the vibe a bit more than the music. In 2008, they met at a party in Washington DC and began making dance tracks not long after. Right from the start, they had an insatiable artistic chemistry that kept them in the studio for ten to twelve hours at a time, riffing on each other’s ideas until they had created something even more sexy and epic than they had anticipated. Typically beginning with just a few short minimal loops, their marathon sessions inevitably result in what can only be described as a “full-blown pop orgy.”
+  p.
+    words by Will Lynch

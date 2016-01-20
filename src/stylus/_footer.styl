@@ -1,3 +1,39 @@
 footer
-  padding: 20px
+  padding: 40px 20px
   background-color: #2b2b2b
+  overflow: hidden
+  //position: absolute
+  bottom: 0
+  width: 100%
+  box-sizing: border-box
+  #newsletter
+    float:left
+    width: 33.333%
+    input
+      border: none
+      background-color: #2b2b2b
+      border-bottom: 1px solid #fff
+      height: 23px
+      color: #9B9B9B
+      font-family: 'ff-clan-thin', "Helvetica Neue", Helvetica, Arial, sans-serif
+      font-size: 14px
+  .social
+    float: left
+    width: 33.333%
+    text-align: center
+    .icon
+      display: inline-block
+      width: 25px
+      height: 25px
+      background-size: 25px
+      &.twitter
+        background-image: url(/imgs/twitter.png)
+      &.fb
+        background-image: url(/imgs/fb.png)
+        margin-left: 5px
+  .sub-nav
+    float: right
+    text-align: right
+    width: 33.333%
+    font-size: 12px
+    color: #9B9B9B

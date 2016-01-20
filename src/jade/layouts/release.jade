@@ -1,0 +1,11 @@
+
+extends ../../jade/layouts/layout
+
+prepend contents
+  h1 #{release}
+  
+append contents
+  ul
+    each track in helpers.getTracks(release, releases)
+      li #{track.title}
+  

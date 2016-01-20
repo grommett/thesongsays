@@ -29,6 +29,23 @@ function newsItemMockView() {
   }
 }
 
+function newsItemView(el) {
+  var panel = el.querySelector('.overlay');
+  var mouseOver;
+
+  el.addEventListener('mouseover', function(event) {
+
+  });
+
+  return {
+    onMouseOver: function(cb) {
+      mouseover = cb
+    }
+  }
+}
+
+
+
 function newsItem(newsItemView) {
   var view = newsItemView;
 
@@ -85,9 +102,11 @@ function checkEmail(val) {
 	return pattern.test(val);
 }
 
+var list = document.querySelector('section');
 module.exports = {
   newsItem: newsItem,
-  newsItemView: newsItemMockView,
+  newsItemView: newsItemView,
+  newsItemMockView: newsItemMockView,
   newsLetter: newsLetter,
   newsLetterMockView: newsLetterMockView
 }

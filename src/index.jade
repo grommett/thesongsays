@@ -1,4 +1,4 @@
-extends layouts/layout
+extends jade/layouts/layout
 prepend page
   - title= 'thesongsays'
 block contents
@@ -7,6 +7,12 @@ block contents
       title: 'Meta Title'
     }
   section
+    div(class="news-item")
+      img(src="http://fpoimg.com/1272x702", class="full-width")
+      div(class="overlay main")
+        h2 Benoit &amp; Sergio
+        p Old Streets
+        button(class="button") Buy Now
     div(class="news-item")
       img(src="http://fpoimg.com/1272x702", class="full-width")
       div(class="overlay main")
