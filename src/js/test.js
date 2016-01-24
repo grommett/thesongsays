@@ -29,11 +29,11 @@ function newsItemMockView() {
   }
 }
 
-function newsItemView(el) {
-  var panel = el.querySelector('.overlay');
+function newsItemView(dom) {
+  var panel = dom.querySelector('.overlay');
   var mouseOver;
 
-  el.addEventListener('mouseover', function(event) {
+  panel.addEventListener('mouseover', function(event) {
 
   });
 
@@ -102,7 +102,7 @@ function checkEmail(val) {
 	return pattern.test(val);
 }
 
-var list = document.querySelector('section');
+//var list = document.querySelector('section');
 module.exports = {
   newsItem: newsItem,
   newsItemView: newsItemView,

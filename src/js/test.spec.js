@@ -1,15 +1,5 @@
 var assert = require('assert');
-var fs = require('fs');
-var file = fs.readFileSync('./tmp/index.html');
-var cheerio = require('cheerio');
-var $ = cheerio.load(file);
-var Tabletop = require('tabletop');
-var Prismic = require('prismic.io').Prismic;
-var jade = require('jade');
 var news = require('./test');
-
-console.log(__dirname);
-var service = require('./prismic-service');
 
 
 describe('newsItem', function(done) {

@@ -3,61 +3,20 @@ var jade = require('jade');
 var gulpJade = require('gulp-jade');
 var RevAll = require('gulp-rev-all');
 var stylus = require('gulp-stylus');
-var timestampFile = require('./plugins/gulp-timestamp');
+var timestampFile = require('./lib/gulp-timestamp');
 var livereload = require('gulp-livereload');
-var blog = require('./plugins/blog');
+var blog = require('./lib/blog');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var artistData = require('./src/data/artists');
 var releases = require('./src/data/releases');
+var templateHelpers = require('./lib/template-helpers');
 
 var revAll = new RevAll({
   dontRenameFile: [/\.html$/g],
   dontUpdateReference: [/\.html$/g]
 });
 
-function getReleasesByArtist(artist, releases) {
-  var found = releases.filter(function(release) {
-    return release.artist == artist
-  }).sort(function(a,b) {
-    return a.date < b.date
-  })
-  return found;
-}
-
-function sortByDate(arr) {
-  var found = arr.sort(function(a,b) {
-    if(a.date < b.date) return 1
-    if(a.date > b.date) return -1
-    return 0;
-  })
-  return found;
-}
-
-function sortByProp(arr, prop) {
-  var found = arr.sort(function(a,b) {
-    if(a[prop] < b[prop]) return 1
-    if(a[prop] > b[prop]) return -1
-    return 0;
-  })
-  return found;
-}
-
-function getArtists(artists) {
-  var found = artists.sort(function(a,b) {
-    if(a.name > b.name) return 1
-    if(a.name < b.name) return -1
-    return 0
-  })
-  return found;
-}
-
-function getTracks(artistRelease, releases) {
-  var found = releases.filter(function(release) {
-    return release.title === artistRelease
-  })
-  return found[0].tracks;
-}
 
 gulp.task('jade', function () {
   return gulp.src(['./src/**/*.jade', '!./src/{,jade/**}', '!./src/{,blog/**}'])
@@ -67,20 +26,12 @@ gulp.task('jade', function () {
       data: {
         artistData: artistData,
         releases: releases,
-        helpers: {
-          getReleasesByArtist: getReleasesByArtist,
-          sortByDate: sortByDate,
-          sortByProp: sortByProp,
-          getTracks: getTracks
-        }
+        helpers: templateHelpers
       }
     }))
     .pipe(timestampFile())
     .pipe(gulp.dest('tmp/'))
     .pipe(livereload())
-    .on('end', function() {
-      console.log('DONE!')
-    });
 })
 
 gulp.task('img', function() {
