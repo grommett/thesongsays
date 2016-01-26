@@ -77,7 +77,7 @@ gulp.task('blog', function() {
 
 
 gulp.task('default', ['jade', 'img', 'fonts', 'css', 'js', 'watch'])
-
+gulp.task('prod', ['rev'])
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('./src/stylus/*.styl', ['css']);

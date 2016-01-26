@@ -26,11 +26,15 @@ footer
       width: 25px
       height: 25px
       background-size: 25px
+      opacity: .6
+      transition: opacity .2s ease-out
       &.twitter
         background-image: url(/imgs/twitter.png)
       &.fb
         background-image: url(/imgs/fb.png)
         margin-left: 5px
+    .icon:hover
+      opacity: 1
   .sub-nav
     float: right
     text-align: right

@@ -9,12 +9,13 @@
   },
   "scripts": {
     "test": "mocha ./src/js/**/*.spec.js",
-    "build:prod": "gulp && rm -rf ./tmp/includes && rm -rf ./tmp/layouts && gulp rev",
+    "build:prod": "gulp rev",
     "build:dev": "Debug=* gulp",
     "blog": "gulp blog",
+    "imgs": "gulp img",
     "clean": "rm -rf ./build && rm -rf ./tmp",
     "serve": "http-server ./tmp -p 3030",
-    "serve:prod": "http-server ./build -p 3030"
+    "serve:prod": "http-server ./build -p 3031"
   },
   "author": "",
   "license": "ISC",
