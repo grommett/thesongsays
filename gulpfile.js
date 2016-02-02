@@ -4,6 +4,8 @@ var gulpJade = require('gulp-jade');
 var RevAll = require('gulp-rev-all');
 var stylus = require('gulp-stylus');
 var timestampFile = require('./lib/gulp-timestamp');
+var cloudFront = require('./lib/gulp-cloudfront');
+var activeNav = require('./lib/gulp-active-nav');
 var livereload = require('gulp-livereload');
 var blog = require('./lib/blog');
 var browserify = require('browserify');
@@ -29,7 +31,7 @@ gulp.task('jade', function () {
         helpers: templateHelpers
       }
     }))
-    .pipe(timestampFile())
+    .pipe(activeNav())
     .pipe(gulp.dest('tmp/'))
     .pipe(livereload())
 })
@@ -48,6 +50,7 @@ gulp.task('rev', function() {
   return gulp.src(['./tmp/**/'])
       .pipe(revAll.revision())
       .pipe(timestampFile())
+      .pipe(cloudFront())
       .pipe(gulp.dest('./build'))
 });
 
@@ -81,6 +84,6 @@ gulp.task('prod', ['rev'])
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('./src/stylus/*.styl', ['css']);
-  gulp.watch('./src/**/*.jade', ['jade']);
+  gulp.watch(['./src/**/*.jade', './src/data/*.js'], ['jade']);
   gulp.watch('./src/js/*.js', ['js']);
 });

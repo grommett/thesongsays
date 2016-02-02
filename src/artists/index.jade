@@ -6,12 +6,13 @@ block contents
     var meta = {
       title: 'Artists Page'
     }
-  h1 Artists Page
-  a(href="/index.html")
-  p.
-    This is in a p tag #{meta.title}
-  ul
+  h1.page-header Artists
+  ul.grid.artist-list
     each artist in artistData
-      li
-        a(href='/artists/#{artist.slug}') #{artist.name}
+      li.grid-cell-6
+        a(href='/artists/#{artist.slug}', class='artist-list-container')
+          img(src='/imgs/artists/#{artist.images.thumbnail}')
+          div(class="artist-list-overlay")
+            h2 #{artist.name}
+            p Lorem Ipsum dolor sit amet, consectetur adipisicing elit
   

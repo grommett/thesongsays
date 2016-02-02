@@ -6,6 +6,8 @@ block page
       title= title
     body
       include ../includes/menu
-      block contents
-      include ../includes/footer
-      script(src='js/app.js')
+      div.page-content
+        block contents
+        include ../includes/footer
+        block scripts
+        //- script(src='js/app.js')

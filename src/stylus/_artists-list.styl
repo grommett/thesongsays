@@ -1,0 +1,40 @@
+.artist-list
+  padding: 0
+  list-style-type: none
+  li
+    margin-bottom: 20px
+
+  .artist-list-container
+    display: block
+    img
+      width: 100%
+      display: block
+    .artist-list-overlay
+      position: absolute
+      top: 0
+      width: 100%
+      height: 100%
+      padding: 20px 20px
+      box-sizing: border-box
+      background-color: rgba(43,43,43,.75)
+      opacity: 1
+      transition: opacity .4s ease-out
+      h2
+        margin-left: 0
+        transition: all .4s ease-out
+        margin: 0
+        font-size: 24px
+      p
+        margin: 0
+        transition: all .4s ease-out
+        font-weight: 300
+        font-size: 14px
+        color: #9B9B9B
+
+  .artist-list-container:hover
+    .artist-list-overlay
+      opacity: 0
+      h2
+        margin-left: 10px
+      p
+        margin-top: 5px
