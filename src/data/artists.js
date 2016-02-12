@@ -27,7 +27,7 @@ module.exports = [
     name: 'Public Lover',
     slug: 'public-lover',
     images: {
-      thumbnail: 'public-lover.jpg',
+      thumbnail: 'public-lover-2.jpg',
       large: 'public-lover-large.jpg'
     }
   },
