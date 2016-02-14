@@ -11,4 +11,7 @@ block page
         block contents
         include ../includes/footer
         block scripts
+          script.
+            var body = document.querySelector('body')
+            body.classList.add('transitionable');
         //- script(src='js/app.js')

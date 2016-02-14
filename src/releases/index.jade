@@ -2,9 +2,26 @@ extends ../jade/layouts/layout
 prepend page
   - title= 'thesongsays | Releases'
 block contents
-  h1 Releases
-  section
-    ul
-      each release in helpers.sortByProp(releases, 'id')
-        li 
-          a(href='/releases/#{release.slug}') #{release.artist} - #{release.title} (#{release.date}) #{release.id}
+  svg(xmlns="http://www.w3.org/2000/svg", width="27", height="27", version="1.1", viewBox="-1 -1 27 27")
+    defs
+      g(id="more-info")
+        circle(id="oval",stroke="#FFFFFF", stroke-alignment="inner", fill="transparent", cx="12.5",cy="12.5",r="12.5")
+        g(id="cross",transform="translate(5, 5)",fill="#FFFFFF")
+          rect(id="vertical",x="7",y="0",width="1",height="15")
+          rect(id="horizontal",transform="translate(7.5, 7.5) rotate(-270) translate(-7.5, -7.5) ",x="7",y="0",width="1",height="15")
+  h1.page-header Releases
+  ul.grid.releases-list
+    each release in helpers.sortByProp(releases, 'id')
+      li.grid-cell-4.release
+        a(href='/releases/#{release.slug}') 
+          div.release-info
+            h2 #{release.artist} 
+            span.release-title #{release.title} <br />
+            span.release-date-id #{release.date} #{release.id}
+          div.release-container
+            img(src='/imgs/releases/covers/#{release.images.thumbnail}')
+            div.release-overlay
+              svg.release-more-info(width="27", height="27")
+                use(x="1", y="1", xlink:href="#more-info")
+
+              
