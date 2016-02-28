@@ -1,4 +1,5 @@
 var dom = require('./dom')(window.document);
+var qwest = require('../../node_modules/qwest/qwest.min.js');
 var email = dom.select('#newsletter input');
 var formBtn = dom.select('#newsletter button');
 var form$ = email.event('keyup')

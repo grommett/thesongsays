@@ -21,7 +21,7 @@ module.exports = [
     artist: 'Bruno Pronsato',
     title: 'Lovers Do',
     id: 'SONG006',
-    date: 'June 2011',
+    date: 'Feb 2016',
     meta: {releaseDetails: 'Digital June 2011, Vinyl Feb 2016'},
     slug: 'lovers-do',
     images: {
@@ -173,8 +173,8 @@ module.exports = [
       thumbnail: 'the-state-of-things.jpg'
     },
     tracks: [
-      // {title: 'The State Of Things', trackId: '248658061', token: 's-bNeiD'},
-      {title: 'The State Of Things', trackId: '18321000'},
+      {title: 'The State Of Things', trackId: '248658061', token: 's-bNeiD'},
+      //{title: 'The State Of Things', trackId: '18321000'},
       {title: 'Days Of Our Youth (Tinsel Mix)'},
       {title: 'No Handle'}
     ],

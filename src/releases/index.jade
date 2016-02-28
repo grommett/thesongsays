@@ -12,7 +12,7 @@ block contents
           g(id="cross",transform="translate(5, 5)",fill="#FFFFFF")
             rect(id="vertical",x="7",y="0",width="1",height="15")
             rect(id="horizontal",transform="translate(7.5, 7.5) rotate(-270) translate(-7.5, -7.5) ",x="7",y="0",width="1",height="15")
-    each release in helpers.sortByProp(releases, 'id')
+    each release in helpers.sortByDate(releases)
       li.grid-cell-4.release-list-item
         a(href='/releases/#{release.slug}') 
           div.release-info

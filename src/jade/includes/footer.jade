@@ -4,9 +4,9 @@ block footer
   - }
   footer(class="#{sticky}")
     div.footer-container
-      form#newsletter
+      form#newsletter(action="http://thesongsays.createsend.com/t/r/s/ukiydd/", method="post")
         //- label Newsletter
-        input(type="text", placeholder="Newsletter")
+        input(type="email", placeholder="Newsletter", name="cm-ukiydd-ukiydd", required)
         button Join
       div(class="social")
         //- a(href="#", class="icon twitter")
