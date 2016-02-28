@@ -1,12 +1,9 @@
 extends ../jade/layouts/layout
 prepend page
-  - title= 'Artists | thesongsays'
+  - pageTitle= 'Artists | thesongsays'
 block contents
-  -
-    var meta = {
-      title: 'Artists Page'
-    }
-  h1.page-header Artists
+  div.page-header-container
+    h1.page-header Artists
   ul.grid.artist-list
     each artist in artistData
       li.grid-cell-6

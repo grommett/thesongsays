@@ -1,0 +1,26 @@
+.social
+  float: left
+  width: 33.333%
+  text-align: center
+  .icon
+    display: inline-block
+    width: 25px
+    height: 25px
+    background-size: 25px
+    opacity: .6
+    margin-right: 10px
+    &:last-child
+      margin-right: 0
+    transition: opacity .2s ease-out
+    &.twitter
+      background-image: url(/imgs/twitter.png)
+    &.fb
+      background-image: url(/imgs/fb.png)
+    &.instagram
+      background-image: url(/imgs/instagram-icon.png)
+    &.soundcloud
+      background-image: url(/imgs/sc-icon.png)
+      background-size: 40px
+      width: 40px
+  .icon:hover
+    opacity: 1

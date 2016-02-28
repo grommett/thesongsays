@@ -1,7 +1,14 @@
 extends ../../jade/layouts/artists
-
+prepend meta
+  - domain = 'http://thesongsays.com'
+  - artist = 'Ninca Leece'
+  - artistObj = helpers.getArtist(artist, artistData)[0]
+  - image = 'http://thesongsays.com/imgs/artists/' + artistObj.images.large
+  - url = domain + '/artists/' + artistObj.slug
+  - description= 'Ninca Leece flirts dreamily with (minimal) house, clicks & cuts and synth pop, mixing the whole thing up with a sprinkling of noise, analogue instruments and field recordings.'
+  - title = artist
 prepend page
-  - title= 'Ninca Leece | thesongsays'
+  - pageTitle= 'Ninca Leece | thesongsays'
   - artist= 'Ninca Leece'
 block artistContents
   div.grid-cell-9
@@ -12,3 +19,9 @@ block artistContents
         Brazil, China, Poland, Finland, Belgium, Germany, Holland, Spain, Italy  Ninca Leece has certainly gone the distance to bring her very own interpretation of contemporary electronic pop music to the people. And it goes something like this: musically socialized through early New Order and My Bloody Valentine, Ninca conjures up immortal melodies out of experimental electronic dance, aided by her box of tricks (her "laboratory", as she calls it). She flirts dreamily with (minimal) house, clicks & cuts and synth pop, mixing the whole thing up with a sprinkling of noise, analogue instruments and field recordings. She modestly describes her first album as "a collection of my experiments in sound and emotions  lots of funny little things, broken hearted sounds and melodies. It's about glitchiness, quirkiness, sexiness." Just listen to her version of The Cure's "Lovesong"!
       p.
         Ninca Leece spent her youth in Rennes, France before, on coming of age, moving to Holland. Amsterdam & Rotterdam, to be precise, where she studied music production and singing. Since then, she has toured the globe as musician, composer, singer and producer, resolutely defending her musical independence, which is so important to her. She writes her own material, plays, records, arranges and produces her songs herself. That's her up on stage on her own as well ­ performing with breathtaking elegance. Her shows are often accompanied by striking visuals, created for her by video artists. Ninca usually sings in English, returning to her native tongue on occasion, or even mixing the two from time to time.
+      div.artist-social
+        //- a.button.book-button(href="http://www.geist-agency.com/request_artist?utm_referrer=thesongsays") Book #{artist}
+        p Elsewhere:<br/>
+        div.social
+          a(href="https://www.facebook.com/benoitandsergio", class="icon fb")
+          a(href="https://soundcloud.com/benoitandsergio" class="icon soundcloud")

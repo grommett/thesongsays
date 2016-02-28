@@ -1,17 +1,34 @@
 extends ../../jade/layouts/artists
 
+prepend meta
+  - domain = 'http://thesongsays.com'
+  - artist = 'Benoit & Sergio'
+  - artistObj = helpers.getArtist(artist, artistData)[0]
+  - description= 'With their playfully flamboyant lyrics and incredibly lush production style, Benoit &amp; Sergio bring a much-needed dose of pop swagger to the world of electronic music.'
+  - image = 'http://thesongsays.com/imgs/artists/' + artistObj.images.large
+  - url = domain + '/artists/' + artistObj.slug
+  - title = artist
 prepend page
-  - title= 'thesongsays | Benoit & Sergio'
-  - artist= 'Benoit & Sergio'
+  - artist = 'Benoit & Sergio'
+  - pageTitle= 'thesongsays | ' + artist
+
 
 block artistContents
   div.grid-cell-9
     div.artist-description
       p.
-        With their playfully flamboyant lyrics and incredibly lush production style, Benoit & Sergio bring a much-needed dose of pop swagger to the world of electronic music. Not content to make DJ fodder, the duo set out to create beautifully glistening pop songs that draw from influences mostly uncommon to the house and techno zeitgeist; bands like Talking Heads, Pavement and Roxy Music are their primary sources of inspiration, along with contemporary electronic acts like Isolee, Thomas Melchior and Ricardo Villalobos. All these influences resonate clearly in their music, joined by a kind of sexualized melodrama that makes Benoit & Sergio one of the weirdest and most charismatic groups currently making dance records.
+        Benoit &amp; Sergio produce dance songs that sometimes seem like musical open letters; editorials narrated in the voices of unidentified, yet totally recognizable colorful characters, read aloud against a backdrop of beautifully lush, warm and sensuous electronic pop music. 
       p.
-        The duo debuted in 2009 with What I’ve Lost, a trippy and colorful EP released on thesongsays, Bruno Pronsato’s boutique label. With lyrics about loneliness, French girls, wine and cocaine, the EP is touched with a sleazy pop sensibility that makes other house or techno records feel dry by comparison. What I’ve Lost received a deluge of praise upon its release, including a 4.5/5 from Resident Advisor and support from DJs like Seth Troxler, Ryan Crosson and Shaun Reeves. On upcoming songs like “Principles” and “Let Me Count The Ways,” Benoit & Sergio maintain their special sense of irony while flexing their club muscles a bit more, crafting lurid atmospheres for gritty techno parties. They are also currently devising their live performance, an ordeal that will reportedly involve knee-pads, saxophone and a microphone headset.
+        The French/US duo met at an after party in Berlin, and it wasn’t long before their signature combination of rich synth work combined with pop influenced lyrical magic and impressive songwriting had been released on labels such as Spectral Sound, DFA, Visionquest, Hot Creations and Culprit.
       p.
-        Benoit & Sergio grew up thousands of miles apart, in Paris and Chicago respectively, both going to raves but digging the vibe a bit more than the music. In 2008, they met at a party in Washington DC and began making dance tracks not long after. Right from the start, they had an insatiable artistic chemistry that kept them in the studio for ten to twelve hours at a time, riffing on each other’s ideas until they had created something even more sexy and epic than they had anticipated. Typically beginning with just a few short minimal loops, their marathon sessions inevitably result in what can only be described as a “full-blown pop orgy.”
+        Benoit &amp; Sergio draw from influences mostly uncommon to the house and techno zeitgeist; bands like The Talking Heads, Pavement and Roxy Music are all sources, along with electronic acts ranging from Daft Punk to Ricardo Villalobos. All these influences resonate clearly in their music, together with a sexual melodrama that manifests in lyrics about loneliness, French girls, wine and Ferraris.
       p.
-        words by Will Lynch
+        The past few years have brought a haul of critical accolades, including iTunes Breakthrough Electronic Artists of the Year (2011), Resident Advisor Top 10 Live acts (2011, 2012), Vibe Magazine's Top Duos (2013) and GQ Magazine's top American electronic acts (2014). Their ubiquitous remix of Hot Natured's 'Reverse Skydiving' received recognition as one of Billboard's top 50 game-changing tracks (2013), with a similar recognition for 'Your Darkness' by Pulse Radio (2014). Recently, they were nominated for the 'Best Indie Dance / Underground DJ' category at the 30th Annual Winter Music Conference (2015). Remix-wise, Benoit &amp; Sergio have been invited to work on tracks from indie pop acts such as Matthew Dear, Metronomy and Friendly Fires.
+      p.
+        As well as spending time in their Berlin and DC studios, the pair toured extensively throughout 2015: from Warung in Brazil, to Into The Valley in Sweden, Ultra in Buenos Aires and beyond. They joined the ranks of Matt Tolfrey’s Leftroom label with the infectious single ‘House With 500 Rooms’, before making their relationship to Soul Clap Records official with the well-rounded ‘Old Streets’ EP. 2016 will see the release of more songs - some dance music, some not at all.
+      div.artist-social
+        a.button.book-button(href="http://www.geist-agency.com/request_artist?utm_referrer=thesongsays") Book #{artist}
+        p Elsewhere:<br/>
+        div.social
+          a(href="https://www.facebook.com/nincaleece", class="icon fb")
+          a(href="https://soundcloud.com/nincaleece" class="icon soundcloud")

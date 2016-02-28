@@ -1,19 +1,34 @@
 extends ../../jade/layouts/artists
-
+prepend meta
+  - domain = 'http://thesongsays.com'
+  - artist = 'Bruno Pronsato'
+  - artistObj = helpers.getArtist(artist, artistData)[0]
+  - image = 'http://thesongsays.com/imgs/artists/' + artistObj.images.large
+  - url = domain + '/artists/' + artistObj.slug
+  - description= 'Heady, intricately woven tracks and ominously funky live performances, Bruno Pronsato is one of techno’s most intriguing artists.'
+  - title = artist
 prepend page
-  - title= 'Bruno Pronsato | thesongsays'
+  - pageTitle= 'Bruno Pronsato | thesongsays'
   - artist= 'Bruno Pronsato'
 
 block artistContents
   div.grid-cell-9
     div.artist-description
       p.
-        With his heady, intricately woven tracks and ominously funky live performances, Bruno Pronsato is one of techno’s most intriguing artists. 
+        With his heady, intricately woven tracks and ominously funky live performances, Bruno Pronsato is one of techno’s most intriguing artists. His sound is full of contradictions: abstract but organic, sexy but bleak, and though most of his records could easily stir a dance floor, they exist purely for themselves, never compromised for club potential. In music, as in life, Bruno likes to get weird, and the suspense that permeates his music often earns him the title of “minimal.” But, it’s the deeply emotional moments - the warm, amber tones of tracks like ‘What We Wish,’ ‘At Home I’m a Tourist’ and ‘The Make Up The Break Up’ - that point to Bruno’s true objective: as he blurted out to an Italian journalist last year, “I just want to make romantic techno.”
       p.
-        His sound is full of contradictions: abstract but organic, sexy but drab, and though most of his records could easily stir a dance floor, they exist purely for themselves, never compromised for club potential. In music, as in life, Bruno likes to get weird, and the suspense that permeates his music often earns him the title of “minimal.” But it’s the deeply emotional moments—the warm, amber tones of tracks like “What We Wish,” “At Home I’m a Tourist” and “The Make Up The Break Up”— that point to Bruno’s true objective: as he blurted out to an Italian journalist last year, “I just want to make romantic techno.”
+        In 2006, Bruno moved from Seattle to Berlin to do techno full time, and it wasn’t long before he made a name for himself. His debut 12" was released in 2003 on Orac, a Kompakt distributed label, and was followed the next year by a full-length album, Silver Cities. Soon Bruno had the attention of labels like Philpot and Musique Risquée, both of whom released Bruno’s next EPs. By 2005, Bruno’s live performance—an unusually nimble and improvisatory act—began receiving praise from XLR8R, The Wire, and dozens of underground European zines. 
       p.
-        In 2006, Bruno moved from Seattle to Berlin to do techno full time, and it wasn’t long before he made a name for himself. His debut 12" was released in 2003 on Orac, a Kompakt distributed label, and was followed the next year by a full-length album, Silver Cities. Soon Bruno had the attention of labels like Philpot and Musique Risquée, both of whom released Bruno’s next EP’s. By 2005, Bruno’s live performance—an unusually nimble and improvisatory act—began receiving praise from XLR8R, The Wire, and dozens of underground European zines. It also piqued the interest of Ricardo Villalobos and Perlon boss Zip, who invited Bruno to play in their laptop super-group, Narod Nikki. Around this time, Bruno formed a duo with Sammy Dee called Half Hawaii. The pair played at nightclubs around Europe and international festivals like Mutek, and released two slick minimal records on Perlon and Hello? Repeat. But Bruno’s real breakthrough came in 2007 when he released Why Can’t We Be Like Us, a strange and beautiful album that received a “5/5” from Resident Advisor and endless accolades throughout the blogosphere.  This secured Bruno’s position as one of techno’s most imaginative and virtuosic artists, a reputation he easily maintained with his next two releases: the weird and sultry Where’d You Learn to Kiss That Way on Hello? Repeat, and Take 1/ Take 2, a jazz-infected house jam he did with Daze Maxim, under the name Others.
+        It also piqued the interest of Ricardo Villalobos and Perlon boss Zip, who invited Bruno to play in their laptop super-group, Narod Niki. Around this time, Bruno formed a duo with Sammy Dee called Half Hawaii. The pair played at nightclubs around Europe and international festivals like Mutek, and released two slick minimal records on Perlon and Hello? Repeat. But Bruno’s real breakthrough came in 2007 when he released Why Can’t We Be Like Us, a strange and beautiful album that received a 5/5 from Resident Advisor and endless accolades throughout the blogosphere. This secured Bruno’s position as one of techno’s most imaginative and virtuosic artists, a reputation he easily maintained with his next two releases: the weird and sultry “Where’d You Learn to Kiss That Way“ on Hello? Repeat, and “Take 1/Take 2,“ a jazz-infected house jam he did with Daze Maxim, under the name Others.   
       p.
-        In 2009, Bruno started his own label, thesongsays. It was partly a matter of necessity; he needed an imprint for his most ambitious work yet, a 38-minute epic called The Make Up The Break Up, so he decided to simply release it himself. Possibly his best work to date, The Make Up The Break Up received a deluge of praise upon its release, including another “5/5” from Resident Advisor. Later that year, thesongsays released its second record, a debut EP called What I’ve Lost by Benoit & Sergio. Dripping with half-ironic romantic sentiment, What I’ve Lost is a daringly unfashionable EP that, perhaps even more than his own tracks, reveals Bruno for who he truly is: a post-punk inspired techno artist that loves staying up all night, sipping whiskey with his pinky crooked.
+        In 2009, Bruno started his own label, thesongsays. It was partly a matter of necessity; he needed an imprint for his most ambitious work yet, a 38-minute epic called The Make Up The Break Up, so he decided to simply release it himself. Possibly his best work to date, The Make Up The Break Up received a deluge of praise upon its release, including another 5/5 from Resident Advisor. Later that year, thesongsays released its second record, a debut EP called ‘What I’ve Lost’ by Benoit & Sergio.   
       p.
-        words by Will Lynch
+        Never resting on his laurels, 2014 welcomed Bruno's album <i>The Bedroom Slant</i> (under his Archangel guise). Wanting to step out of his usual dance style, this album absorbed more of his punk and post-rock influences and included himself on vocals, along with guest appearances by Peter Gordon and Caro. Dripping with half-ironic romantic sentiment, The Bedroom Slant reveals Bruno for who he truly is: a post-punk inspired techno artist that loves staying up all night, sipping whiskey with his pinky crooked. 
+      p.
+        In 2015, Foom Records issued an EP comprising of four remixes of the Archangel album, including a particularly distinctive interpretation from Dean Blunt. Bruno also did a few remixes of his own, aswell as signing his ‘Odd Ballads’ to Popcorn Records and hosting regular events in Berlin. In 2016, expect music with Benoit & Sergio (as NDF) and with Sammy Dee (as Half Hawaii).
+      div.artist-social
+        p Elsewhere:<br/>
+        div.social
+          a(href="https://www.facebook.com/Bruno-Pronsato-50528760548", class="icon fb")
+          a(href="https://soundcloud.com/brunopronsato" class="icon soundcloud")
+        a.button.book-button(href="http://www.geist-agency.com/request_artist?utm_referrer=thesongsays") Book #{artist}

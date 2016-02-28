@@ -1,0 +1,39 @@
+
+extends ../jade/layouts/layout
+
+block contents
+  - clientId = '16fc186177b1a1e6737cfe9599e70273'
+  div.grid
+    div.grid-cell-12
+      form(style="margin: 20px 10px 20px 0")
+        input.link(style="height: 30px; border: none; padding: 0; width: 300px")
+        button.button Get ID
+      p.out
+block pagescripts
+  script(src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js")
+  script.
+    var btn = document.querySelector('button');
+    var link = document.querySelector('.link');
+    var out = document.querySelector('.out');
+    SC.initialize({
+      client_id: "#{clientId}"
+    });
+    btn.addEventListener('click', function(e) {
+      e.preventDefault()
+    var url = link.value
+    var token = link.value.match(/\/([a-z]\-[a-zA-z0-9]+)/)
+    console.log('Token: ', token);
+    if(token) {
+      token = token[1]
+    }else{
+      token = ''
+    }
+    //token = (token[1]) ? token[1] : ''
+    SC.resolve(url)
+    .then(function(e) {
+        console.log('ID: ', e);
+        out.innerHTML = 'Title: ' + e.title + '<br/> Soundcloud id: ' + e.id +'<br />\
+        Token: ' + token + '\
+          <div><img style="width:300px; height:auto; margin-top: 20px" src="' + e.waveform_url+ '" /></div>' 
+      })
+    })

@@ -1,3 +1,6 @@
+breakPoint=767px
+maxWidth=960px
+
 @import '_type'
 @import '_grid'
 @import '_header'
@@ -5,9 +8,14 @@
 @import '_news-item'
 @import '_overlay'
 @import '_button'
+@import '_social'
 @import '_artists-list'
 @import '_artist'
 @import '_releases-list'
+@import '_release'
+@import '_player'
+@import '_mobile-nav'
+
 body
   margin: 0
   padding: 0
@@ -17,19 +25,28 @@ body
 .full-width
   width: 100%
 
-.page-header
-  margin: 40px 20px
-  padding-bottom: 10px
-  border-bottom: 1px solid #E65789
-  font-size: 30px
-  font-family: 'Avenir Next W01 Thin'
+.no-scroll
+  overflow: hidden
+
+.page-header-container
+  max-width: 960px
+  margin: 28px auto 40px
+  padding: 0 20px
+  .page-header
+    padding-bottom: 10px
+    border-bottom: 1px solid #E65789
+    font-size: 30px
+    font-family: 'Avenir Next W01 Thin'
+.svg-defs
+  display: none
+
 img
   display: block
 
 a
   color: #fff
   text-decoration: none
+
 .page-content
-  padding-top: 91px
-  //max-width: 980px
+  padding-top: 87px
   margin: auto

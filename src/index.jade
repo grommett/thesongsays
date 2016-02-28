@@ -1,21 +1,20 @@
 extends jade/layouts/layout
 prepend page
-  - title= 'thesongsays'
+  - pageTitle= 'thesongsays'
 block contents
-  -
-    var meta = {
-      title: 'Meta Title'
-    }
-  section
-    div(class="news-item")
-      img(src="/imgs/BenoitAndSergio_cropped.jpg", class="full-width")
-      div(class="overlay main")
-        h2 Benoit &amp; Sergio
-        p Old Streets
-        button(class="button") Buy Now
-    div(class="news-item")
-      img(src="/imgs/bruno_loversdo.jpg", class="full-width")
-      div(class="overlay main")
-        h2 Bruno Pronsato
-        p Lovers Do
-        button(class="button") Buy Now
+  a(href="/releases/the-state-of-things/", class="news-item")
+    img(src="/imgs/visuals-homepage.jpg", class="full-width")
+    div.grid.overflow 
+      div.grid-cell-12
+        div(class="overlay main")
+          h2 VISUALS
+          p The State of Things
+          p Release date: Mar 25, 2016
+  a(href="/releases/lovers-do/", class="news-item")
+    img(src="/imgs/bruno_loversdo.jpg", class="full-width")
+    div.grid.overflow 
+      div.grid-cell-12
+        div(class="overlay main")
+          h2 Bruno Pronsato
+          p Lovers Do
+          p Vinyl Rerelease date: Feb 26, 2016

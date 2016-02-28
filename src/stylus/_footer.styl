@@ -1,14 +1,23 @@
+footer.sticky
+  position: absolute
+  bottom: 0
+  width: 100%
 footer
-  padding: 40px 20px
+  padding: 40px 20px 20px
   background-color: #2b2b2b
   overflow: hidden
-  //position: absolute
   bottom: 0
   width: 100%
   box-sizing: border-box
+
+  .footer-container
+    max-width: 960px
+    margin: 0 auto
   #newsletter
     float:left
     width: 33.333%
+    position: relative
+    margin-top: 4px
     input
       border: none
       background-color: #2b2b2b
@@ -17,27 +26,38 @@ footer
       color: #9B9B9B
       font-family: font-stack
       font-size: 14px
-  .social
-    float: left
-    width: 33.333%
-    text-align: center
-    .icon
-      display: inline-block
-      width: 25px
-      height: 25px
-      background-size: 25px
-      opacity: .6
-      transition: opacity .2s ease-out
-      &.twitter
-        background-image: url(/imgs/twitter.png)
-      &.fb
-        background-image: url(/imgs/fb.png)
-        margin-left: 5px
-    .icon:hover
-      opacity: 1
+      width: 100%
+      box-sizing: border-box
+      border-radius: 0
+      &:focus
+        outline: none
+    button
+      top: -2px
+      right: 0
+      padding: 2px 5px 2px 5px
+      position: absolute
   .sub-nav
+    p
+      margin: 5px 0 0 0
     float: right
     text-align: right
     width: 33.333%
     font-size: 12px
     color: #9B9B9B
+
+@media screen and (max-width: breakPoint)
+  footer
+    #newsletter
+      float: none
+      width: 100%
+      position: relative
+      margin-bottom: 20px
+      margin-top: 0
+    .social
+      width: 50%
+      text-align: left
+    .sub-nav
+      margin-top: 6.5px
+      p
+        margin: 0
+      width: 50%

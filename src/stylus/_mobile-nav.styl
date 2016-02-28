@@ -1,0 +1,36 @@
+.mobile-nav
+  position: fixed
+  z-index: 999
+  background-color: rgba(50,50, 50, .95)
+  width: 100%
+  height: 100%
+  padding: 20px
+  font-size: 30px
+  box-sizing: border-box
+  left: -100%
+  top: 0
+  transition: none
+
+  &.open
+    transition: left .2s ease-out
+    left: 0
+
+  &.closed
+    left: -100%
+   transition: left .2s ease-in
+   
+  ul
+    padding: 0
+    margin: 0
+    list-style-type: none
+    li
+      border-bottom: 1px solid rgba(255,255,255, .5)
+      margin-bottom: 20px
+      a
+        display: block
+        padding: 10px
+
+  .mobile-nav-close-btn
+    float: right
+    margin-top: 10px
+    cursor: pointer

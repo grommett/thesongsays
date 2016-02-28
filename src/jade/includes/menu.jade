@@ -1,10 +1,26 @@
+div.mobile-nav.closed
+  svg.mobile-nav-close-btn(width="28", height="28", viewBox="-1 -1 28 28", version="1.1", xmlns="http://www.w3.org/2000/svg")
+    circle(stroke="#fff" fill="transparent", cx="12.5" cy="12.5" r="12.5")
+    line(stroke="#fff", x1="7", y1="7", x2="18", y2="18", stroke-width="2")
+    line(stroke="#fff", x1="18", y1="7", x2="7", y2="18", stroke-width="2")
+  ul
+    li(class="!{artists}") #[a(href="/artists/", title="Artists") Artists]
+    li(class="!{releases}") #[a(href="/releases/", title="Releases") Releases]
+    //- li(class="!{press}") #[a(href="/press/", title="Press") Press]
+    li(class="!{info}") #[a(href="/info/", title="Info") Info]
 header
-  a(href="/", title="home", class="logo")
-    img(src="/imgs/logo.png", alt="")
-  nav
-    ul
-      li #[a(href="/artists/", title="Artists" class="") Artists]
-      li #[a(href="/releases/", title="Releases" class="!{releases}") Releases]
-      li #[a(href="/press/", title="Press" class="!{press}") Press]
-      li #[a(href="/info/", title="About" class="!{info}") Info]
-      //- li #[a(href="/blog/", title="Blog" class="!{blog}") Blog]
+  div.header-container
+    a(href="/", title="home", class="logo")
+      img(src="/imgs/logo.png", alt="")
+    svg.mobile-nav-open-btn(class="svg-defszz", width="28", height="28", viewBox="-1 -1 28 28", version="1.1", xmlns="http://www.w3.org/2000/svg")
+      line(stroke="#fff", x1="0", y1="0", x2="28", y2="0", stroke-width="2")
+      line(stroke="#fff", x1="0", y1="9", x2="28", y2="9", stroke-width="2")
+      line(stroke="#fff", x1="0", y1="18", x2="28", y2="18", stroke-width="2")
+    nav
+      ul
+        li(class="!{artists}") #[a(href="/artists/", title="Artists") Artists]
+        li(class="!{releases}") #[a(href="/releases/", title="Releases") Releases]
+        //- li(class="!{press}") #[a(href="/press/", title="Press") Press]
+        li(class="!{info}") #[a(href="/info/", title="Info") Info]
+        //- li #[a(href="/blog/", title="Blog" class="!{blog}") Blog]
+  

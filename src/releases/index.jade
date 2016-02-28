@@ -1,18 +1,19 @@
 extends ../jade/layouts/layout
 prepend page
-  - title= 'thesongsays | Releases'
+  - pageTitle= 'Releases | thesongsays'
 block contents
-  svg(xmlns="http://www.w3.org/2000/svg", width="27", height="27", version="1.1", viewBox="-1 -1 27 27")
-    defs
-      g(id="more-info")
-        circle(id="oval",stroke="#FFFFFF", stroke-alignment="inner", fill="transparent", cx="12.5",cy="12.5",r="12.5")
-        g(id="cross",transform="translate(5, 5)",fill="#FFFFFF")
-          rect(id="vertical",x="7",y="0",width="1",height="15")
-          rect(id="horizontal",transform="translate(7.5, 7.5) rotate(-270) translate(-7.5, -7.5) ",x="7",y="0",width="1",height="15")
-  h1.page-header Releases
+  div.page-header-container
+    h1.page-header Releases
   ul.grid.releases-list
+    svg.svg-defs(xmlns="http://www.w3.org/2000/svg", width="27", height="27", version="1.1", viewBox="-1 -1 27 27")
+      defs
+        g(id="more-info")
+          circle(id="oval",stroke="#FFFFFF", stroke-alignment="inner", fill="transparent", cx="12.5",cy="12.5",r="12.5")
+          g(id="cross",transform="translate(5, 5)",fill="#FFFFFF")
+            rect(id="vertical",x="7",y="0",width="1",height="15")
+            rect(id="horizontal",transform="translate(7.5, 7.5) rotate(-270) translate(-7.5, -7.5) ",x="7",y="0",width="1",height="15")
     each release in helpers.sortByProp(releases, 'id')
-      li.grid-cell-4.release
+      li.grid-cell-4.release-list-item
         a(href='/releases/#{release.slug}') 
           div.release-info
             h2 #{release.artist} 

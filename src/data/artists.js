@@ -19,8 +19,8 @@ module.exports = [
     name: 'Ninca Leece',
     slug: 'ninca-leece',
     images: {
-      thumbnail: 'ninca.jpg',
-      large: 'ninca-large-2.jpg'
+      thumbnail: 'ninca-small.jpg',
+      large: 'ninca-large-3.jpg'
     }
   },
   {

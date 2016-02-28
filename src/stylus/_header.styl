@@ -7,6 +7,10 @@ header
   left: 0
   right: 0
   z-index: 100
+
+  .header-container
+    max-width: maxWidth
+    margin: 0 auto
   .container
     margin: 0 auto
   .logo
@@ -17,9 +21,13 @@ header
       max-width: 200px
       width: 100%
       height: auto
+  .mobile-nav-open-btn
+    float: right
+    margin-top: 12px
+    display: none
 nav
   float: right
-  margin-top: 20px
+  margin-top: 16px
   font-weight: 100
   ul
     padding: 0
@@ -43,3 +51,11 @@ nav
       border-color: #E65789
     li:hover
       border-color: #E65789
+
+      mobile-nav-close-btn
+@media screen and (max-width: breakPoint)
+  header
+    nav
+      display: none
+    .mobile-nav-open-btn
+      display: block

@@ -1,0 +1,90 @@
+.release
+  img
+    width: 100%
+  h1, h2
+    margin: 0
+  h1
+    font-size: 30px
+  h2
+    font-size: 24px
+    color: #9B9B9B
+  .release-artist-title
+    margin: 20px 0
+
+  .release-tracks-header,
+  .release-purchase-header,
+  .release-info-header
+    margin: 0 0 20px
+    padding-bottom: 5px
+    border-bottom: 1px solid rgba(255,255,255,.5)
+
+  .release-catalog-id,
+  .release-meta
+    font-size: 14px
+    color: #9B9B9B
+
+  .release-tracks
+    list-style-type: none
+    padding: 0 0 20px
+    margin: 0
+    cursor: pointer
+
+    .track.disabled
+      svg
+        opacity: .5
+        cursor: not-allowed
+    .track
+      margin-bottom: 10px
+
+      svg
+        vertical-align: middle
+        margin-right: 10px
+        margin-top: -5px
+        cursor: pointer
+      .track-pause-btn
+        opacity: 0
+      &.playing
+        .track-play-btn
+          opacity: 0
+        .track-pause-btn
+          opacity: 1
+
+  .release-purchase-list
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+    .release-purchase-item
+      margin: 0 10px 10px 0
+      float: left
+      .button
+        display: inline-block
+        font-size: 12px
+  .button.read-more
+    display: inline-block
+    font-size: 11px
+    padding: 2px 5px
+    margin-bottom: 20px
+  .text-more
+    position: absolute
+    opacity: 0
+    overflow: hidden
+    transition: none
+audio
+  display:none
+
+.transitionable
+  .release
+    .text-more
+      transition: height .5s ease-in, opacity .5s ease-in
+
+@media screen and (max-width: breakPoint)
+  .release
+    .release-purchase-list
+      .release-purchase-item
+        margin-bottom: 20px
+        float: none
+        .button
+          display: block
+          font-size: 12px
+          text-align: center

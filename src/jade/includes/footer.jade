@@ -1,10 +1,17 @@
-footer
-  form#newsletter
-    label Newsletter
-    input(type="text")
-    button Join
-  div(class="social")
-    a(href="#", class="icon twitter")
-    a(href="#", class="icon fb")
-  div(class="sub-nav")
-    p Copyright !{new Date().getFullYear()}
+block footer
+  - if(!sticky) {
+  -  sticky = ''
+  - }
+  footer(class="#{sticky}")
+    div.footer-container
+      form#newsletter
+        //- label Newsletter
+        input(type="text", placeholder="Newsletter")
+        button Join
+      div(class="social")
+        //- a(href="#", class="icon twitter")
+        a(href="https://www.facebook.com/thesongsays", class="icon fb")
+        a(href="https://www.instagram.com/thesongsays_records/" class="icon instagram")
+        a(href="https://soundcloud.com/thesongsays" class="icon soundcloud")
+      div(class="sub-nav")
+        p Copyright !{new Date().getFullYear()}

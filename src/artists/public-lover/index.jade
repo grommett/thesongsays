@@ -1,7 +1,14 @@
 extends ../../jade/layouts/artists
-
+prepend meta
+  - domain = 'http://thesongsays.com'
+  - artist = 'Public Lover'
+  - artistObj = helpers.getArtist(artist, artistData)[0]
+  - image = 'http://thesongsays.com/imgs/artists/' + artistObj.images.large
+  - url = domain + '/artists/' + artistObj.slug
+  - description= 'Public Lover is a deeper version of Ninca Leece and Bruno Pronsato. It\'s the inevitable result of two people making music for years. People who grew up on My Bloody Valentine, Roxy Music, and good-ol\' techno and house.'
+  - title = artist
 prepend page
-  - title= 'Public Lover | thesongsays'
+  - pageTitle= 'Public Lover | thesongsays'
   - artist= 'Public Lover'
 block artistContents
   div.grid-cell-9
@@ -18,3 +25,9 @@ block artistContents
         Armed with sonic satin, they look forward to shocking you with their brilliance, charm, and utter deepness.
       p.
         Let's hold hands.
+      div.artist-social
+        //- a.button.book-button(href="http://www.geist-agency.com/request_artist?utm_referrer=thesongsays") Book #{artist}
+        p Elsewhere:<br/>
+        div.social
+          a(href="https://www.facebook.com/publiclover", class="icon fb")
+          a(href="https://soundcloud.com/publiclover" class="icon soundcloud")

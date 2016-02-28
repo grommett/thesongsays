@@ -15,12 +15,14 @@ var releases = require('./src/data/releases');
 var templateHelpers = require('./lib/template-helpers');
 
 var revAll = new RevAll({
-  dontRenameFile: [/\.html$/g],
+  dontRenameFile: [/\.html$/g, 'tss-social.jpg'],
   dontUpdateReference: [/\.html$/g]
 });
 
 
 gulp.task('jade', function () {
+  var artistData = require('./src/data/artists');
+  var releases = require('./src/data/releases');
   return gulp.src(['./src/**/*.jade', '!./src/{,jade/**}', '!./src/{,blog/**}'])
     .pipe(gulpJade({
       compileDebug: true,
@@ -43,7 +45,7 @@ gulp.task('img', function() {
 
 
 gulp.task('rev', function() {
-  return gulp.src(['./tmp/**/'])
+  return gulp.src(['./tmp/**/**'])
       .pipe(revAll.revision())
       .pipe(timestampFile())
       .pipe(cloudFront())
@@ -57,16 +59,6 @@ gulp.task('css', function() {
       .pipe(livereload());
 });
 
-gulp.task('js', function() {
-  return browserify({
-          entries: ['./src/js/test.js']
-      })
-      .bundle()
-      .pipe(source('app.js'))
-      .pipe(gulp.dest('./tmp/js'))
-      .pipe(livereload());
-});
-
 gulp.task('blog', function() {
   return gulp.src(['./src/blog/**/*.jade'])
         .pipe(blog({pretty: true}))
@@ -74,14 +66,44 @@ gulp.task('blog', function() {
         .pipe(gulp.dest('tmp/blog'))
 });
 
+gulp.task('site-js', function() {
+  return browserify({
+    entries: ['./src/js/site.js']
+  })
+  .bundle()
+  .pipe(source('site.js'))
+  .pipe(gulp.dest('./tmp/js'))
+  .pipe(livereload());
+});
 
-gulp.task('default', ['jade', 'img', 'css', 'js', 'watch']);
+gulp.task('artist-js', function() {
+  return browserify({
+    entries: ['./src/js/site.js', './src/js/read-more.js']
+  })
+  .bundle()
+  .pipe(source('artist.js'))
+  .pipe(gulp.dest('./tmp/js'))
+  .pipe(livereload());
+});
+
+gulp.task('release-js', function() {
+  return browserify({
+    entries: ['./src/js/site.js', './src/js/tracks.js', './src/js/read-more.js']
+  })
+  .bundle()
+  .pipe(source('release.js'))
+  .pipe(gulp.dest('./tmp/js'))
+  .pipe(livereload());
+});
+
+gulp.task('default', ['jade', 'img', 'css', 'watch', 'site-js', 'artist-js', 'release-js']);
 
 gulp.task('prod', ['rev']);
 
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('./src/stylus/*.styl', ['css']);
-  gulp.watch(['./src/**/*.jade', './src/data/*.js'], ['jade']);
-  gulp.watch('./src/js/*.js', ['js']);
+  gulp.watch(['./src/data/*.js'], ['jade']);
+  gulp.watch(['./src/**/*.jade'], ['jade']);
+  gulp.watch(['./src/js/*.js'], ['site-js', 'artist-js', 'release-js']);
 });

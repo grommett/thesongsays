@@ -10,6 +10,7 @@
   "scripts": {
     "test": "mocha ./src/js/**/*.spec.js",
     "build:prod": "gulp rev",
+    "js" : "browserify ./src/js/site.js ./src/js/read-more.js -o ./tmp/js/app.js",
     "build:dev": "gulp",
     "blog": "gulp blog",
     "imgs": "gulp img",

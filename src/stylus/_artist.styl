@@ -3,16 +3,17 @@
   padding-top: calc(14% - 35px)
   padding-bottom: calc(14% - 35px)
   background-size: cover
+  background-position: center
   h1
     font-weight: 100
     color: #fff
     margin: 0 auto
     font-size: 70px
-    max-width: 930px
+    max-width: 1000px
     font-family: 'Avenir Next W01 Thin'
 
 .artist-container
-  max-width: 960px
+  max-width: 1000px
   margin: 0 auto 20px auto
 
 .artist-description,
@@ -23,7 +24,10 @@
   padding-right: 20px
   border-right: 1px solid #fff
   color: #fff
-
+.artist-releases-header
+  display: none
+  border-bottom: 1px solid #fff
+  padding-bottom: 10px
 .artist-release-list
   list-style-type: none
   margin-bottom: 20px
@@ -42,3 +46,37 @@
       width: 60%
   .artist-release
     margin-bottom: 10px
+.artist-social
+  .book-button
+    display: inline-block
+    margin: 20px 0 20px
+    font-size: 12px
+  .social
+    float: none
+    width: auto
+    text-align: left
+    .icon
+      margin-right: 10px
+      width: 18px
+      height: 18px
+      background-size: 18px
+      &.soundcloud
+        width: 30px
+        background-size: 30px
+    // soundcloud width 30, height: 18 bksize: 30px
+@media screen and (max-width: breakPoint)
+  .artist-description
+    padding-right: 0
+    border-right: none
+
+  .artist-release-list
+    li
+      margin-bottom: 40px
+      img
+        width: 100%
+  .artist-releases-header
+    display: block
+  .artist-social
+    .book-button
+      display: block
+      text-align: center

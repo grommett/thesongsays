@@ -1,9 +1,14 @@
 gutter=20px
 percent=0
 .grid
-  margin: 0 (gutter/2)px //('0 -%s', (gutter/2)px)
+  padding: 0 (gutter/2)px
+  // margin: 0 (gutter/2)px //('0 -%s', (gutter/2)px)
   overflow: hidden
-
+  box-sizing: border-box
+  margin: 0 auto
+  max-width: (maxWidth + (gutter*2))px
+  &.overflow
+    overflow: visible
 [class*="grid-cell-"]
   float: left;
   margin: 0 (gutter/2)px
@@ -13,3 +18,16 @@ for i in (1...13)
     percent=(i/12) * 100%
     width: s('calc(%s - %s)', percent, gutter)
     position: relative
+
+
+@media screen and (max-width: breakPoint)
+  .grid
+    margin: 0
+
+    [class*="grid-cell-"]
+      padding-left: (gutter/2)px !important
+      padding-right: (gutter/2)px !important
+      margin-left: 0
+      margin-right: 0
+      width: 100%
+      box-sizing: border-box
