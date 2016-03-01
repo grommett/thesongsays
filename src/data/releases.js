@@ -1,10 +1,12 @@
 module.exports = [
   {
+    id: '02',
     artist: 'Benoit & Sergio',
     title: 'What I\'ve Lost',
-    id: 'SONG002',
+    catalogId: 'SONG002',
     date: 'Nov 2009',
     slug: 'what-ive-lost',
+    formats: ['12"'],
     images: {
       thumbnail: 'what-weve-lost.jpg'
     },
@@ -18,10 +20,47 @@ module.exports = [
     ],
   },
   {
+    id: '06-1',
     artist: 'Bruno Pronsato',
     title: 'Lovers Do',
-    id: 'SONG006',
+    catalogId: 'SONG006',
+    formats: ['LP Vinyl'],
     date: 'Feb 2016',
+    rerelease: true,
+    meta: {
+      releaseDetails: 'Digital June 2011, Vinyl LP Feb 2016',
+      releaseCaption: 'Vinyl Release'
+    },
+    slug: 'lovers-do-re-release',
+    images: {
+      thumbnail: 'lovers-do.jpg'
+    },
+    tracks: [
+      {title: 'Lovers Don\'t', trackId: '248344399', token: 's-kXLNv'},
+      {title: 'Anybody But You', trackId: '248344409', token: 's-vJ9yq'},
+      {title: 'Trio-Out', trackId: '248352725', token: 's-hGE3Y'},
+      {title: 'An Anne Around The Neck', trackId: '248352721', token: 's-OKYzJ'},
+      {title: 'An Indication Of The Cause (Part 1)', trackId: '248352718', token: 's-efqCw'},
+      {title: 'Feel Right', trackId: '248352713', token: 's-ig9Zy'},
+      {title: 'Wintermusic For Summer', trackId: '248352711', token: 's-8o64H'},
+      {title: 'Lovers Do', trackId: '248352707', token: 's-dJ2q8'},
+      {title: 'Bonus - An Indication Of The Cause (Part 2)', trackId: '248352704', token: 's-PSuAR'}
+    ],
+    purchaseOptions: [
+      {location: 'iTunes', link: 'https://itunes.apple.com/us/album/lovers-do/id440569898'},
+      {location: 'Beatport', link: 'https://pro.beatport.com/release/lovers-do/381303'},
+      {location: 'Juno', link: 'http://www.juno.co.uk/products/bruno-pronsato-lovers-do-reissue/598672-01/'},
+      {location: 'Decks', link: 'http://www.decks.de/t/bruno_pronsato-lovers_do_-_2016/c6l-xn'}
+    ],
+  },
+  // Original Release
+  {
+    id: '06',
+    artist: 'Bruno Pronsato',
+    title: 'Lovers Do',
+    catalogId: 'SONG006',
+    formats: ['CD', 'Digital'],
+    date: 'June 2011',
     meta: {releaseDetails: 'Digital June 2011, Vinyl Feb 2016'},
     slug: 'lovers-do',
     images: {
@@ -40,19 +79,19 @@ module.exports = [
     ],
     purchaseOptions: [
       {location: 'iTunes', link: 'https://itunes.apple.com/us/album/lovers-do/id440569898'},
-      {location: 'Decks', link: 'http://www.decks.de/t/bruno_pronsato-lovers_do_-_2016/c6l-xn'},
-      {location: 'Boomkat', link: 'https://boomkat.com/products/lovers-do'},
+      {location: 'Beatport', link: 'https://pro.beatport.com/release/lovers-do/381303'},
       {location: 'Juno', link: 'http://www.juno.co.uk/products/bruno-pronsato-lovers-do-reissue/598672-01/'},
-      {location: 'Phonica', link: 'http://www.phonicarecords.com/product/bruno-pronsato-lovers-do-cd-theseongsays/65137'},
-      {location: 'Word and Sound', link: 'http://www.wordandsound.de/article/70358'}
+      {location: 'Decks', link: 'http://www.decks.de/t/bruno_pronsato-lovers_do_-_2016/c6l-xn'}
     ],
   },
   {
+    id: '01',
     artist: 'Bruno Pronsato',
     title: 'The Make Up The Break Up',
-    id: 'SONG001',
+    catalogId: 'SONG001',
     date: 'Aug 2009',
     slug: 'the-makeup-the-breakup',
+    formats: ['12"', 'Digital'],
     images: {
       thumbnail: 'the-make-up-the-break-up.jpg'
     },
@@ -67,17 +106,19 @@ module.exports = [
     ],
     purchaseOptions: [
       {location: 'iTunes', link: 'https://itunes.apple.com/us/album/the-make-up-the-break-up/id442122056'},
-      {location: 'Decks', link: 'http://www.decks.de/t/bruno_pronsato-the_make_up_the_break_up/btm-uw'},
-      {location: 'Boomkat', link: 'https://boomkat.com/products/the-make-up-the-break-up'},
-      {location: 'Word and Sound', link: 'http://www.wordandsound.de/article/60399'}
+      {location: 'Beatport', link: 'https://pro.beatport.com/release/the-make-up-the-break-up/185810'},
+      {location: 'Juno', link: 'http://www.juno.co.uk/products/bruno-pronsato-the-make-up-the-break/363093-01/'},
+      {location: 'Decks', link: 'http://www.decks.de/t/bruno_pronsato-the_make_up_the_break_up/btm-uw'}
     ],
   },
   {
+    id: '05',
     artist: 'Bruno Pronsato',
     title: 'Anybody But You',
-    id: 'SONG005',
+    catalogId: 'SONG005',
     date: 'Jan 2010',
     slug: 'anybody-but-you',
+    formats: ['12"', 'Digital'],
     images: {
       thumbnail: 'anybody-but-you.jpg'
     },
@@ -87,18 +128,19 @@ module.exports = [
     ],
     purchaseOptions: [
       {location: 'iTunes', link: 'https://itunes.apple.com/us/album/anybody-but-you-ep/id414072258'},
-      {location: 'Decks', link: 'http://www.decks.de/t/bruno_pronsato-anybody_but_you/bwi-p4'},
-      {location: 'Boomkat', link: 'https://boomkat.com/products/anybody-but-you-06a05a3e-ba7f-487a-8e54-caa2b874fdec'},
-      {location: 'Phonica', link: 'http://www.phonicarecords.com/product/bruno-pronsato-anybody-but-you-thesongsays/64058'},
-      {location: 'Word and Sound', link: 'http://www.wordandsound.de/article/67914'}
+      {location: 'Beatport', link: 'https://pro.beatport.com/release/anybody-but-you/322790'},
+      {location: 'Juno', link: 'http://www.juno.co.uk/products/bruno-pronsato-anybody-but-you/416140-01/'},
+      {location: 'Decks', link: 'http://www.decks.de/t/bruno_pronsato-anybody_but_you/bwi-p4'}
     ],
   },
   {
+    id: '03',
     artist: 'Ninca Leece',
     title: 'Feed Me Rainbows',
-    id: 'SONG003',
+    catalogId: 'SONG003',
     date: 'Apr 2010',
     slug: 'feed-me-rainbows',
+    formats: ['12"', 'Digital'],
     images: {
       thumbnail: 'feed-me-rainbows.jpg'
     },
@@ -108,18 +150,19 @@ module.exports = [
     ],
     purchaseOptions: [
       {location: 'iTunes', link: 'https://itunes.apple.com/us/album/feed-me-rainbows-ep/id442880043'},
-      {location: 'Decks', link: 'http://www.decks.de/t/ninca_leece-feed_me_rainbows-public_lover_remix/bv6-b1'},
-      {location: 'Boomkat', link: 'https://boomkat.com/products/feed-me-rainbows'},
+      {location: 'Beatport', link: 'https://pro.beatport.com/release/feed-me-rainbows/236103'},
       {location: 'Juno', link: 'http://www.juno.co.uk/products/ninca-leece-feed-me-rainbows/390866-01/'},
-      {location: 'Word and Sound', link: 'http://www.wordandsound.de/article/64278'}
+      {location: 'Decks', link: 'http://www.decks.de/t/ninca_leece-feed_me_rainbows-public_lover_remix/bv6-b1'}
     ]
   },
   {
+    id: '04',
     artist: 'Public Lover',
     title: 'Musique d\'Hiver Pour L\'Ete',
-    id: 'SONG004',
+    catalogId: 'SONG004',
     date: 'Sep 2010',
     slug: 'musique-dhiver-pour-lete',
+    formats: ['12"'],
     images: {
       thumbnail: 'musique-dhiver-pour-lete.jpg'
     },
@@ -132,17 +175,19 @@ module.exports = [
     ],
     purchaseOptions: [
       {location: 'iTunes', link: 'https://itunes.apple.com/us/album/musique-dhiver-pour-lete/id443774505'},
-      {location: 'Decks', link: 'http://www.decks.de/t/public_lover-musique_d_hiver_pour_l_ete/bvz-cq'},
-      {location: 'Boomkat', link: 'https://boomkat.com/products/musique-d-hiver-pour-l-ete'},
-      {location: 'Word and Sound', link: 'http://www.wordandsound.de/article/66803'}
+      {location: 'Beatport', link: 'https://pro.beatport.com/release/musique-dhiver-pour-lete/279113'},
+      {location: 'Juno', link: 'http://www.juno.co.uk/products/public-lover-musique-dhiver-pour-lete/401060-01/'},
+      {location: 'Decks', link: 'http://www.decks.de/t/public_lover-musique_d_hiver_pour_l_ete/bvz-cq'}
     ]
   },
   {
+    id: '07',
     artist: 'Public Lover',
     title: 'A Broken Shape of You',
-    id: 'SONG007',
+    catalogId: 'SONG007',
     date: 'Jan 2013',
     slug: 'a-broken-shape-of-you',
+    formats: ['CD', 'Digital'],
     images: {
       thumbnail: 'a-broken-shape-of-you.jpg'
     },
@@ -158,29 +203,29 @@ module.exports = [
     ],
     purchaseOptions: [
       {location: 'iTunes', link: 'https://itunes.apple.com/us/album/a-broken-shape-of-you/id499388545'},
-      {location: 'Decks', link: 'http://www.decks.de/t/public_lover-a_broken_shape_of_you/byv-xq'},
-      {location: 'Boomkat', link: 'https://boomkat.com/products/a-broken-shape-of-you-307e3151-2729-402c-ac06-db77b040c850'},
-      {location: 'Word and Sound', link: 'http://www.wordandsound.de/article/73740'}
+      {location: 'Juno', link: 'http://www.juno.co.uk/products/public-lover-a-broken-shape-of-you/441169-01/'},
+      {location: 'Decks', link: 'http://www.decks.de/t/public_lover-a_broken_shape_of_you/byv-xq'}
     ],
   },
   {
+    id: '08',
     artist: 'VISUALS',
     title: 'The State of Things',
-    id: 'SONG008',
+    catalogId: 'SONG008',
     date: 'March 2016',
     slug: 'the-state-of-things',
+    formats: ['12"', 'Digital'],
     images: {
       thumbnail: 'the-state-of-things.jpg'
     },
     tracks: [
       {title: 'The State Of Things', trackId: '248658061', token: 's-bNeiD'},
-      //{title: 'The State Of Things', trackId: '18321000'},
-      {title: 'Days Of Our Youth (Tinsel Mix)'},
-      {title: 'No Handle'}
+      {title: 'Days Of Our Youth', trackId: '248658059', token: 's-yr2NK'},
+      {title: 'No Handle', trackId: '248658057', token: 's-w8jBP'}
     ],
     purchaseOptions: [
-      //{location: 'iTunes', link: 'https://itunes.apple.com/us/album/visuals-ep/id734558132'},
-      {location: 'Word and Sound', link: 'http://www.wordandsound.de/article/97782'}
+      {location: 'Juno', link: 'http://www.juno.co.uk/products/visuals-the-state-of-things/599486-01/'},
+      {location: 'Decks', link: 'http://www.decks.de/t/visuals-the_state_of_things/c6o-6h'}
     ],
   }
 ]

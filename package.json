@@ -18,8 +18,10 @@
     "blog": "gulp blog",
     "imgs": "gulp img",
     "clean": "rm -rf ./build && rm -rf ./tmp",
+    "clean:prod": "rm -rf ./build",
     "serve": "http-server ./tmp -p 3030",
-    "serve:prod": "http-server ./build -p 3031"
+    "serve:prod": "http-server ./build -p 3031",
+    "deploy": "sh ./deploy.sh"
   },
   "author": "",
   "license": "ISC",

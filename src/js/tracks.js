@@ -13,8 +13,31 @@ function playPauseTrack(e) {
   if(trackID(e) === 'disabled') return
   var pattern = '[data-player-id="' + trackID(e) + '"]'
   var player = dom.select(pattern);
+
+  player.onwaiting = function() {
+      console.log("Buffering...");
+  };
+
+  player.onprogress = function(p) {
+      console.log("Downloading video ", player.buffered.end(0), player.duration);
+  };
+
+  player.loadedmetadata = function(e) {
+    console.log('track loadedmetadata');
+  }
+
   player.onended = function(e) {
+    console.log('track ended');
+    player.pause()
     toggleTrack(e.target.parentNode)
+  }
+
+  player.oncanplay = function() {
+    console.log('can play ' + pattern);
+  }
+
+  player.oncanplaythrough = function() {
+    console.log('can play through' + pattern);
   }
   if(player.paused) return player.play()
   player.pause();

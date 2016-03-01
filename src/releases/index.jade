@@ -17,8 +17,11 @@ block contents
         a(href='/releases/#{release.slug}') 
           div.release-info
             h2 #{release.artist} 
-            span.release-title #{release.title} <br />
-            span.release-date-id #{release.date} #{release.id}
+            span.release-title #{release.title}
+            - releaseCaption = helpers.releaseCaption(release)
+            - releaseFormattedCaption = (releaseCaption) ? ' (' + releaseCaption + ')' : ''
+            span.release-formats &nbsp;#{releaseFormattedCaption}<br />
+            span.release-date-id #{release.date} #{release.catalogId}
           div.release-container
             img(src='/imgs/releases/covers/#{release.images.thumbnail}')
             div.release-overlay

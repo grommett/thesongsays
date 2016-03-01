@@ -1,36 +1,88 @@
 var dom = require('./dom')(window.document);
+var compose = require('./lib').compose;
+var prop = require('./lib').prop;
+var identity = require('./lib').identity;
 var qwest = require('../../node_modules/qwest/qwest.min.js');
-var email = dom.select('#newsletter input');
-var formBtn = dom.select('#newsletter button');
-var form$ = email.event('keyup')
-var formBtn$ = formBtn.event('click')
+var jsonp = require('./jsonp')
+// nodes
+var form = cachedNode('#newsletter');
+var email = cachedNode('#newsletter input');
+var formBtn = cachedNode('#newsletter button');
 
+//Streams
+var form$ = email().event('keyup');
+var formBtn$ = formBtn().event('click');
+
+// composed
+var formURL = compose(attribute('action'), form);
+var emailVarName = compose(attribute('name'), email);
+var emailAddress = compose(prop('value'), email);
+var emailValid = compose(checkEmail, emailAddress);
+var enableSubmitBtn = compose(toggleBtnAttribute('disabled'), emailValid)
+
+var getValidEmail = compose(getEmailAddress, emailValid)
+var addSubscriber = compose(post(handlePostResponse), getValidEmail)
+
+console.log('email var name: ', emailVarName);
+
+// Events/Streams
 formBtn$.map(function(e) {
   e.preventDefault();
-  console.log('submitting form!');
+  addSubscriber()
 })
-form$.map(function(e) {
-  console.log('valid ', checkEmail(e.target.value));
-})
-console.log('form stream ',form$);
-console.log('email stream ', email);
+form$.map(enableSubmitBtn);
 
-function newsLetter(view) {
-  view.onChange(validateEmail);
+function handlePostResponse(response) {
+    if(response.Status === 200) {
+      console.log('success');
+    }else{
+      console.log('success');
+    }
+}
 
-  function validateEmail(val) {
-    console.log('checking email ', checkEmail(val))
-    view.valid(checkEmail(val))
+function getEmailAddress(bool) {
+  if(bool === true) {
+    return emailAddress();
+  }
+  return null;
+}
+
+function post(cb) {
+  var endPoint = formURL();
+  return function(data) {
+    if(!data) return
+    var subEndPoint = endPoint + '?' + emailVarName() + '=' + data;
+    jsonp(subEndPoint, cb)
   }
 }
+
+function toggleBtnAttribute(name) {
+  var node = formBtn()
+  return function(bool) {
+    if(bool === true) node.removeAttribute(name)
+    if(bool === false) node.setAttribute(name, name)
+    return node
+  }
+}
+
+function cachedNode(pattern) {
+  var cached;
+  return function() {
+    if(cached) {
+      return cached;
+    }
+    cached = dom.select(pattern);
+    return cached;
+  }
+}
+
+function attribute(name) {
+  return function (el) {
+    return el.getAttribute(name)
+  }
+};
 
 function checkEmail(val) {
 	var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return pattern.test(val);
-}
-
-function compose(f,g) {
-  return function(x) {
-    return f(g(x));
-  }
-}
+};

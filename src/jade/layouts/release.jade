@@ -2,9 +2,11 @@
 extends ../../jade/layouts/layout
 
 block contents
-  - releaseObj = helpers.getRelease(release, releases)[0]
+  - releaseObj = helpers.getReleaseById(id, releases)[0]
   - clientId = '16fc186177b1a1e6737cfe9599e70273'
   - scEndpoint = 'http://api.soundcloud.com/tracks'
+  - releaseCaption = helpers.releaseCaption(releaseObj)
+  - releaseFormattedCaption = (releaseCaption) ? ' (' + releaseCaption + ')' : ''
   svg(class="svg-defs", version="1.1", xmlns="http://www.w3.org/2000/svg")
     symbol(id="play-btn", viewBox="-1 -1 28 28")
       circle.outline(id="oval" stroke="#fff" fill="transparent", cx="12.5" cy="12.5" r="12.5")
@@ -18,23 +20,25 @@ block contents
     div.grid-cell-12
       div.release-artist-title
         h1 #{releaseObj.artist}
-        h2 #{releaseObj.title}
+        h2 #{releaseObj.title} #{releaseFormattedCaption}
     div.grid-cell-6
       img(src="/imgs/releases/covers/#{releaseObj.images.thumbnail}")
       block releaseContents
     div.grid-cell-6
       h3.release-info-header Info
-      p Release Date #{releaseObj.date} <br/>
-        if releaseObj.meta
-          span.release-meta #{releaseObj.meta.releaseDetails}<br/>
-        span.release-catalog-id #{releaseObj.id}
+      - releaseLabel = (releaseObj.rerelease) ? 'Re-release' : 'Release'
+      p #{releaseLabel} Date #{releaseObj.date} <br/>
+        //- if releaseCaption
+        //-   span #{releaseFormattedCaption} <br />
+        span.release-meta Format: #{releaseObj.formats.join(", ")}<br />
+        span.release-catalog-id #{releaseObj.catalogId}
       h3.release-tracks-header Tracks
       ul.release-tracks
         each track in helpers.getTracks(release, releases)
           li.track(data-track-id="#{(track.trackId) ? track.trackId : 'disabled'}" class="#{(track.trackId) ? '' : 'disabled'}")
             - token = (track.token) ? 'secret_token=' + track.token : ''
             - audioSource = (track.trackId) ? scEndpoint + '/' + track.trackId + '/stream?client_id=' + clientId + '&' + token : ''
-            audio(preload="auto", src="#{audioSource}", data-player-id="#{track.trackId}")
+            audio(preload="metadata", src="#{audioSource}", data-player-id="#{track.trackId}")
             svg.track-player(width="20", height="20" style="")
               use.track-pause-btn(x="1", y="1", xlink:href="#pause-btn")
               use.track-play-btn(x="1", y="1", xlink:href="#play-btn")
@@ -45,5 +49,4 @@ block contents
           li.release-purchase-item
             a.button(href="#{purchaseOption.link}", target="_blank") #{purchaseOption.location}
 block pagescripts
-  //- script(src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js")
   script(src="/js/release.js")

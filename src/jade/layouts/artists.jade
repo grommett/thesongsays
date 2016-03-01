@@ -18,9 +18,13 @@ block contents
                 li
                   a(href="/releases/#{release.slug}")
                     div.artist-release 
+                      - releaseCaption = helpers.releaseCaption(release)
+                      - releaseFormattedCaption = (releaseCaption) ? releaseCaption : ''
                       span.title #{release.title} <br />
+                      if releaseFormattedCaption
+                        span.title #{releaseFormattedCaption} <br />
                       span.date #{release.date}<br />
-                      span.catalog-id #{release.id}
+                      span.catalog-id #{release.catalogId}
                     img(src="/imgs/releases/covers/#{release.images.thumbnail}")
             else 
               li New release coming soon...
