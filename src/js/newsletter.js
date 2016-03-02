@@ -2,8 +2,7 @@ var dom = require('./dom')(window.document);
 var compose = require('./lib').compose;
 var prop = require('./lib').prop;
 var identity = require('./lib').identity;
-var qwest = require('../../node_modules/qwest/qwest.min.js');
-var jsonp = require('./jsonp')
+var jsonp = require('./jsonp');
 // nodes
 var form = cachedNode('#newsletter');
 var email = cachedNode('#newsletter input');

@@ -12,7 +12,7 @@
     "findjade": "find ./src -iname *.jade",
     "uglify": "find ./build/js/*.js -exec uglifyjs {} -o {} \\;",
     "htmlmin": "find ./build -iname *.html -exec html-minifier --collapse-whitespace {} -o {} \\;",
-    "build:prod": "gulp rev",
+    "build:prod": "gulp rev && npm run uglify && npm run htmlmin",
     "js": "browserify ./src/js/site.js ./src/js/read-more.js -o ./tmp/js/app.js",
     "build:dev": "gulp",
     "blog": "gulp blog",
