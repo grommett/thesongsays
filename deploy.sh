@@ -1,7 +1,23 @@
 #!/bin/sh
+if [ -z "$1" ]
+  then
+    echo "You need to specify a 'dev' or 'prd' deployment type"
+    exit 1
+fi
+
+
+if [ $1 == "dev" ]
+  then
+    domain='dev.thesongsays.com'
+    echo "Deploying to dev ..."
+fi
+if [ $1 == "prd" ]
+  then
+    domain='thesongsays.com'
+    echo "Deploying to prd ..."
+fi
 
 builddir=./build/*
-domain='dev.thesongsays.com'
 dirdate=$(date +%m-%d-%Y-%H-%M)
 proddir="~/domains/$domain/$dirdate"
 user=pinkiering.com
@@ -14,7 +30,7 @@ npm run build:prod
 
 # Put build files on the server
 echo "Deploying files to server..."
-rsync --ignore-times -r --exclude '.DS_Store' $builddir $user@$server:$proddir
+rsync --ignore-times -r -p --exclude '.DS_Store' $builddir $user@$server:$proddir
 
 # Change sym link (HTML) to point to this new dir
 # EOF Didn't work here.

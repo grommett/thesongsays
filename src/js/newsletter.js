@@ -8,6 +8,8 @@ var jsonp = require('./jsonp')
 var form = cachedNode('#newsletter');
 var email = cachedNode('#newsletter input');
 var formBtn = cachedNode('#newsletter button');
+var feedBackOk = cachedNode('.feedback.success');
+var feedBackError = cachedNode('.feedback.error');
 
 //Streams
 var form$ = email().event('keyup');
@@ -23,8 +25,6 @@ var enableSubmitBtn = compose(toggleBtnAttribute('disabled'), emailValid)
 var getValidEmail = compose(getEmailAddress, emailValid)
 var addSubscriber = compose(post(handlePostResponse), getValidEmail)
 
-console.log('email var name: ', emailVarName);
-
 // Events/Streams
 formBtn$.map(function(e) {
   e.preventDefault();
@@ -32,11 +32,20 @@ formBtn$.map(function(e) {
 })
 form$.map(enableSubmitBtn);
 
+// TODO: this srsly needs to get cleaned up
 function handlePostResponse(response) {
+    form().classList.add('hide')
+    form().classList.remove('show')
+    feedBackError().classList.remove('hide');
     if(response.Status === 200) {
-      console.log('success');
+      feedBackOk().classList.add('show')
     }else{
-      console.log('success');
+      feedBackError().classList.add('show');
+      setTimeout(function(){
+        form().classList.remove('hide')
+        form().classList.add('show')
+        feedBackError().classList.add('hide');
+      }, 4000)
     }
 }
 
@@ -51,7 +60,7 @@ function post(cb) {
   var endPoint = formURL();
   return function(data) {
     if(!data) return
-    var subEndPoint = endPoint + '?' + emailVarName() + '=' + data;
+    var subEndPoint = endPoint + '?' + emailVarName() + '=' + encodeURIComponent(data);
     jsonp(subEndPoint, cb)
   }
 }
@@ -83,6 +92,6 @@ function attribute(name) {
 };
 
 function checkEmail(val) {
-	var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	var pattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return pattern.test(val);
 };

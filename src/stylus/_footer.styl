@@ -11,48 +11,76 @@ footer
   box-sizing: border-box
 
   .footer-container
-    max-width: 960px
+    max-width: maxWidth
     margin: 0 auto
-  #newsletter
-    float:left
+  .form-container
     width: 33.333%
+    float: left
+    overflow: hidden
+    height: 28px
     position: relative
-    margin-top: 4px
-    input
-      border: none
-      background-color: #2b2b2b
-      border-bottom: 1px solid #fff
-      height: 23px
-      color: #9B9B9B
-      font-family: font-stack
-      font-size: 14px
-      width: 100%
-      box-sizing: border-box
-      border-radius: 0
-      &:focus
-        outline: none
-    button
-      top: -2px
-      right: 0
-      padding: 2px 5px 2px 5px
+
+    .feedback
       position: absolute
+      top: 30px
+      width: 100%
+      font-size: 12px
+      transition: top .3s ease-in
+      &.show
+        top: 0
+      &.hide
+        top: 30px
+      &.error
+        color: #FD8484
+
+    #newsletter
+      position: absolute
+      width: 100%
+      margin-top: 4px
+      top: 0
+      transition-delay: .1s
+      transition: top .2s ease-out
+
+      input
+        border: none
+        background-color: #2b2b2b
+        border-bottom: 1px solid #fff
+        height: 23px
+        color: #9B9B9B
+        font-family: font-stack
+        font-size: 14px
+        width: 100%
+        box-sizing: border-box
+        border-radius: 0
+        text-indent: 0
+        &:focus
+          outline: none
+      button
+        top: -3px
+        right: 0
+        padding: 2px 5px 2px 5px
+        position: absolute
+      &.hide
+        top: -30px
+      &.show
+        top: 0px
   .sub-nav
-    p
-      margin: 5px 0 0 0
     float: right
     text-align: right
     width: 33.333%
     font-size: 12px
     color: #9B9B9B
 
+    p
+      margin: 5px 0 0 0
+
 @media screen and (max-width: breakPoint)
   footer
-    #newsletter
+    .form-container
       float: none
       width: 100%
-      position: relative
       margin-bottom: 20px
-      margin-top: 0
+
     .social
       width: 50%
       text-align: left
