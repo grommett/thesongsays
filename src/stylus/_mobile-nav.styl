@@ -7,18 +7,17 @@
   padding: 20px
   font-size: 30px
   box-sizing: border-box
-  left: -100%
+  transform: translateX(-100%)
   top: 0
-  transition: none
-
+  transition: transform .2s
+  // -webkit-transition: none
   &.open
-    transition: left .2s ease-out
-    left: 0
-
+    //left: 0
+    transform: translateX(0%)
   &.closed
-    left: -100%
-   transition: left .2s ease-in
-   
+    //left: -100%
+    transform: translateX(-100%)
+
   ul
     padding: 0
     margin: 0

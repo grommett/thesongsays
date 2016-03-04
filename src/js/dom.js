@@ -33,6 +33,15 @@ function node(n) {
     return fn(el)
   }
 
+  el.toggleClass = function(name) {
+    console.log('toggling ', name)
+    if(el.classList.contains(name)) {
+      el.classList.remove(name);
+    }else{
+      el.classList.add(name);
+    }
+  }
+
   return el;
 }
 

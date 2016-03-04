@@ -29,8 +29,8 @@ block contents
       block releaseContents
     div.grid-cell-6
       h3.release-info-header Info
-      - releaseLabel = (releaseObj.rerelease) ? 'Re-release' : 'Release'
-      p #{releaseLabel} Date #{releaseObj.date} <br/>
+      //- - releaseLabel = (releaseObj.rerelease) ? 'Re-release' : 'Release'
+      p Release Date #{releaseObj.date} <br/>
         //- if releaseCaption
         //-   span #{releaseFormattedCaption} <br />
         span.release-meta Format: #{releaseObj.formats.join(", ")}<br />

@@ -9,13 +9,14 @@ var openBtn$ = openBtn.event('click');
 closeBtn$.map(closeBtnClick)
 openBtn$.map(openBtnClick)
 
+
 function closeBtnClick(e) {
-  mobileNav.classList.add('closed');
+  mobileNav.classList.remove('open');
   body.classList.remove('no-scroll');
+
 }
 
 function openBtnClick(e) {
-  mobileNav.classList.remove('closed');
   mobileNav.classList.add('open');
   body.classList.add('no-scroll');
 }

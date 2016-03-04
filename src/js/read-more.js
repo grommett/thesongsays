@@ -9,9 +9,6 @@ readMoreTxt$.map(function(e) {
   if(e.propertyName === 'height') {
     readMoreTxt.style.transition = 'none';
     readMoreTxt.style.height = 'auto';
-    console.log('transition ended: ' , e)
-  }else{
-    console.log('transition ended: ' , e)
   }
 });
 
