@@ -7,16 +7,19 @@
   padding: 20px
   font-size: 30px
   box-sizing: border-box
-  transform: translateX(-100%)
+  // left: -100%
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
   top: 0
-  transition: transform .2s
-  // -webkit-transition: none
+  transition: transform .2s ease-in
   &.open
-    //left: 0
-    transform: translateX(0%)
+    // left: 0
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   &.closed
-    //left: -100%
-    transform: translateX(-100%)
+    // left: -100%
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
 
   ul
     padding: 0

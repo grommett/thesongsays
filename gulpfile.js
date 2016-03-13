@@ -13,12 +13,20 @@ var source = require('vinyl-source-stream');
 var artistData = require('./src/data/artists');
 var releases = require('./src/data/releases');
 var templateHelpers = require('./lib/template-helpers');
+var sitemap = require('gulp-sitemap');
 
 var revAll = new RevAll({
   dontRenameFile: [/\.html$/g, 'tss-social.jpg'],
   dontUpdateReference: [/\.html$/g]
 });
 
+gulp.task('sitemap', function() {
+  gulp.src('./build/**/*.html')
+  .pipe(sitemap({
+    siteUrl: 'http://thesongsays.com'
+  }))
+  .pipe(gulp.dest('./build'));
+})
 
 gulp.task('jade', function () {
   var artistData = require('./src/data/artists');
@@ -54,7 +62,7 @@ gulp.task('rev', function() {
 
 gulp.task('css', function() {
   return gulp.src(['./src/stylus/styles.styl'])
-      .pipe(stylus())
+      .pipe(stylus({compress: true}))
       .pipe(gulp.dest('./tmp/css'))
       .pipe(livereload());
 });

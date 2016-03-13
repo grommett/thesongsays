@@ -29,6 +29,7 @@ formBtn$.map(function(e) {
   e.preventDefault();
   addSubscriber()
 })
+
 form$.map(enableSubmitBtn);
 
 // TODO: this srsly needs to get cleaned up
@@ -48,6 +49,15 @@ function handlePostResponse(response) {
     }
 }
 
+function toggleClass(name) {
+  return function(el) {
+    if(el.classList.contains(name)) {
+      el.classList.remove(name)
+    }else{
+      el.classList.add(name)
+    }
+  }
+}
 function getEmailAddress(bool) {
   if(bool === true) {
     return emailAddress();
