@@ -12,6 +12,7 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var artistData = require('./src/data/artists');
 var releases = require('./src/data/releases');
+var press = require('./src/data/press');
 var templateHelpers = require('./lib/template-helpers');
 var sitemap = require('gulp-sitemap');
 
@@ -38,6 +39,7 @@ gulp.task('jade', function () {
       data: {
         artistData: artistData,
         releases: releases,
+        press: press,
         helpers: templateHelpers
       }
     }))

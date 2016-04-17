@@ -1,0 +1,28 @@
+extends ../../../jade/layouts/artists
+prepend meta
+  - domain = 'http://thesongsays.com'
+  - artist = 'VISUALS'
+  - artistObj = helpers.getArtist(artist, artistData)[0]
+  - image = '/imgs/artists/' + artistObj.images.large
+  - url = domain + '/artists/' + artistObj.slug
+  - description= 'VISUALS expresses the emotional energy of our hyper-accelerated times through subtle lyrical content and diverse moods, using genre like any other instrument. VISUALS\' remarkable vocals and singular production style and process mark him out as special talent.'
+  - title = artist
+prepend page
+  - pageTitle= 'VISUALS Press | thesongsays'
+  - artist= 'VISUALS'
+  - press= helpers.getPress(artist, press)
+block artistContents
+  div.grid-cell-8
+    div.artist-press
+      h2 Press
+      ul
+        each item in press
+          li
+            a(href="#{item.link}", target="_blank") #{item.label}
+              span.button.view-button view
+      div.artist-social
+        p Elsewhere:<br/>
+        div.social
+          a(href="https://www.facebook.com/visualsvisualsvisuals", class="icon fb")
+          a(href="https://soundcloud.com/visualsmusic" class="icon soundcloud")
+        a.button.book-button(href="http://www.geist-agency.com/request_artist?utm_referrer=thesongsays") Book #{artist}
