@@ -3,3 +3,4 @@ node_modules
 tmp
 gh-pages
 build
+npm-debug.log
