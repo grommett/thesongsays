@@ -3,7 +3,7 @@ module.exports = [
     artist: "VISUALS",
     press: [
       {
-        label: "The Loud Neighbours interview.",
+        label: "The Loud Neighbours interview",
         link: "http://theloudneighbours.com/home/2016/3/6/interview-we-chat-with-multi-instrumentalistproducer-visuals"
       },
       {
@@ -15,7 +15,7 @@ module.exports = [
         link: "http://earmilk.com/2016/03/22/visuals-debuts-the-state-of-things-ep-premiere/"
       },
       {
-        label: "The State of Things’ Premiere via Self-Titled",
+        label: "The State of Things Premiere via Self-Titled",
         link: "http://www.self-titledmag.com/2016/02/22/premiere-visuals-the-state-of-things/"
       },
       {
@@ -23,7 +23,7 @@ module.exports = [
         link: "http://bullettmedia.com/article/visuals-days-of-our-youth/"
       },
       {
-        label: "SoT on The Playground",
+        label: "The State of Things on The Playground",
         link: "http://www.theplayground.co.uk/visuals-brings-ethereal-beauty-to-the-state-of-things/"
       },
       {
