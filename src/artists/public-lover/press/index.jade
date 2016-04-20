@@ -1,0 +1,27 @@
+extends ../../../jade/layouts/artists
+prepend meta
+  - domain = 'http://thesongsays.com'
+  - artist = 'Public Lover'
+  - artistObj = helpers.getArtist(artist, artistData)[0]
+  - image = '/imgs/artists/' + artistObj.images.large
+  - url = domain + '/artists/' + artistObj.slug
+  - description= 'With their playfully flamboyant lyrics and incredibly lush production style, Benoit &amp; Sergio bring a much-needed dose of pop swagger to the world of electronic music.'
+  - title = artist
+prepend page
+  - pageTitle= 'Public Lover Press | thesongsays'
+  - artist= 'Public Lover'
+  - press= helpers.getPress(artist, press)
+block artistContents
+  div.grid-cell-8
+    div.artist-press
+      h2 Press
+      ul
+        each item in press
+          li
+            a(href="#{item.link}", target="_blank") #{item.label}
+              span.button.view-button view
+      div.artist-social
+        p Elsewhere:<br/>
+        div.social
+          a(href="https://www.facebook.com/publiclover", class="icon fb")
+          a(href="https://soundcloud.com/publiclover" class="icon soundcloud")

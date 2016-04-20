@@ -1,0 +1,28 @@
+extends ../../../jade/layouts/artists
+prepend meta
+  - domain = 'http://thesongsays.com'
+  - artist = 'Bruno Pronsato'
+  - artistObj = helpers.getArtist(artist, artistData)[0]
+  - image = '/imgs/artists/' + artistObj.images.large
+  - url = domain + '/artists/' + artistObj.slug
+  - description= 'With their playfully flamboyant lyrics and incredibly lush production style, Benoit &amp; Sergio bring a much-needed dose of pop swagger to the world of electronic music.'
+  - title = artist
+prepend page
+  - pageTitle= 'Bruno Pronsato Press | thesongsays'
+  - artist= 'Bruno Pronsato'
+  - press= helpers.getPress(artist, press)
+block artistContents
+  div.grid-cell-8
+    div.artist-press
+      h2 Press
+      ul
+        each item in press
+          li
+            a(href="#{item.link}", target="_blank") #{item.label}
+              span.button.view-button view
+      div.artist-social
+        p Elsewhere:<br/>
+        div.social
+          a(href="https://www.facebook.com/Bruno-Pronsato-50528760548", class="icon fb")
+          a(href="https://soundcloud.com/brunopronsato" class="icon soundcloud")
+        a.button.book-button(href="http://www.geist-agency.com/request_artist?utm_referrer=thesongsays") Book #{artist}
