@@ -1,0 +1,39 @@
+.video-container
+  position: relative
+  padding-top: 56%
+  display: block
+  width: 100%
+  overflow: hidden
+
+.video-vimeo
+  position: absolute
+  top: -100%
+  left: 0
+  width: 100%
+  height: 300%
+
+.video-vimeo-click-target
+  position: absolute;
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  cursor: pointer
+  background-color: rgba(255, 0, 0, 0)
+
+.video-overlay
+  transition: opacity .2s ease-out
+
+.video-overlay.hide
+  opacity: 0
+
+@media screen and (max-width: breakPoint)
+  .video-vimeo
+    top: 0
+    height: 100%
+  .video-vimeo-click-target
+    display: none
+  .video-overlay
+    bottom: 50px
+  .video-meta
+    display: none

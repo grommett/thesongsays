@@ -2,6 +2,18 @@ extends jade/layouts/layout
 prepend page
   - pageTitle= 'thesongsays'
 block contents
+  div.video-container
+    script(src="https://player.vimeo.com/api/player.js")
+    iframe(id="vimeoplayer", class="video-vimeo", frameborder="0", src="https://player.vimeo.com/video/171632603?&title=0&color=323232&byline=0&portrait=0")
+    div.grid.overflow 
+      div.grid-cell-12
+        div(class="overlay main video-overlay")
+          h2 VISUALS - The State of Things (Video)
+          div.video-meta
+            p Director/Editor: Gabriel Gomez
+            p DP: Benjamin Garst
+            p Production Company: Crooked Letter Films
+    div.video-vimeo-click-target
   a(href="/releases/the-state-of-things/", class="news-item")
     img(src="/imgs/visuals-homepage.jpg", class="full-width")
     div.grid.overflow 

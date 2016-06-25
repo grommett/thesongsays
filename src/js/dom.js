@@ -34,7 +34,6 @@ function node(n) {
   }
 
   el.toggleClass = function(name) {
-    console.log('toggling ', name)
     if(el.classList.contains(name)) {
       el.classList.remove(name);
     }else{

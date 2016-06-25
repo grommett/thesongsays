@@ -1,5 +1,6 @@
 require('./mobile-nav');
-require('./newsletter')
+require('./newsletter');
+require('./vimeo-player');
 var dom = require('./dom')(window.document);
 
 
