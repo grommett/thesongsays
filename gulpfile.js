@@ -134,5 +134,5 @@ gulp.task('watch', function() {
   gulp.watch('./src/stylus/*.styl', ['css']);
   gulp.watch(['./src/data/*.js'], ['jade']);
   gulp.watch(['./src/**/*.jade'], ['jade']);
-  gulp.watch(['./src/js/*.js'], ['site-js', 'artist-js', 'release-js']);
+  gulp.watch(['./src/js/*.js'], ['site-js', 'artist-js', 'release-js', 'home-js']);
 });

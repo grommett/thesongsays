@@ -8,6 +8,11 @@ function dom(document) {
       var n = (s) ? node(s) : node(null);
       return n;
     },
+    selectAll: function(pattern) {
+      var s = document.querySelectorAll(pattern);
+      var nodes = (s) ? [].map.call(s, function(n) {return node(n)}) : [];
+      return nodes;
+    },
     node: node
   }
 }
