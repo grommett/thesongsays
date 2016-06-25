@@ -5,18 +5,8 @@ var mobileNav = dom.select('.mobile-nav');
 var closeBtn$ = closeBtn.event('click');
 var openBtn$ = openBtn.event('click');
 
-closeBtn$.map(toggleClass('open'))
-openBtn$.map(toggleClass('open'))
-
-
-// function closeBtnClick(e) {
-//   mobileNav.classList.remove('open');
-//
-// }
-//
-// function openBtnClick(e) {
-//   mobileNav.classList.add('open');
-// }
+closeBtn$.map(toggleClass('open'));
+openBtn$.map(toggleClass('open'));
 
 function toggleClass(name) {
   return function() {

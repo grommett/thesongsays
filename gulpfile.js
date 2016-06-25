@@ -54,13 +54,22 @@ gulp.task('img', function() {
 });
 
 
-gulp.task('rev', function() {
+gulp.task('rev:dev', function() {
+  return revFiles('dev')
+});
+
+gulp.task('rev:prd', function() {
+  return revFiles('prd')
+});
+
+function revFiles(env) {
+  if(!env) env = 'dev';
   return gulp.src(['./tmp/**/**'])
       .pipe(revAll.revision())
       .pipe(timestampFile())
-      .pipe(cloudFront())
+      .pipe(cloudFront({env:env}))
       .pipe(gulp.dest('./build'))
-});
+}
 
 gulp.task('css', function() {
   return gulp.src(['./src/stylus/styles.styl'])
@@ -106,7 +115,17 @@ gulp.task('release-js', function() {
   .pipe(livereload());
 });
 
-gulp.task('default', ['jade', 'img', 'css', 'watch', 'site-js', 'artist-js', 'release-js']);
+gulp.task('home-js', function() {
+  return browserify({
+    entries: ['./src/js/site.js', './src/js/vimeo-player.js']
+  })
+  .bundle()
+  .pipe(source('home.js'))
+  .pipe(gulp.dest('./tmp/js'))
+  .pipe(livereload());
+});
+
+gulp.task('default', ['jade', 'img', 'css', 'watch', 'site-js', 'home-js', 'artist-js', 'release-js']);
 
 gulp.task('prod', ['rev']);
 

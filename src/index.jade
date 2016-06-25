@@ -1,6 +1,8 @@
 extends jade/layouts/layout
 prepend page
   - pageTitle= 'thesongsays'
+block pagescripts
+  script(src="js/home.js")
 block contents
   div.video-container
     script(src="https://player.vimeo.com/api/player.js")

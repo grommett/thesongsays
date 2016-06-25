@@ -26,7 +26,15 @@ server=pinkiering.com
 # Build and mins the prod files. See package.json
 echo "Building site..."
 rm -rf ./build
-npm run build:prod
+if [ $1 == "dev" ]
+  then
+    npm run build:dev
+fi
+if [ $1 == "prd" ]
+  then
+    npm run build:prod
+fi
+
 
 # Put build files on the server
 echo "Deploying files to server..."

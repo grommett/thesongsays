@@ -3,6 +3,7 @@ var compose = require('./lib').compose;
 var prop = require('./lib').prop;
 var identity = require('./lib').identity;
 var jsonp = require('./jsonp');
+
 // nodes
 var form = cachedNode('#newsletter');
 var email = cachedNode('#newsletter input');
@@ -58,6 +59,7 @@ function toggleClass(name) {
     }
   }
 }
+
 function getEmailAddress(bool) {
   if(bool === true) {
     return emailAddress();
