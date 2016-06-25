@@ -3,6 +3,10 @@ module.exports = [
     artist: "VISUALS",
     press: [
       {
+        label: "Hero interview and video release",
+        link: "http://hero-magazine.com/article/60848/watch-hazy-summer-unfold-on-the-streets-of-new-york-visuals/"
+      },
+      {
         label: "The Loud Neighbours interview",
         link: "http://theloudneighbours.com/home/2016/3/6/interview-we-chat-with-multi-instrumentalistproducer-visuals"
       },
